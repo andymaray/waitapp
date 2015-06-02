@@ -15,7 +15,7 @@ class SurveyQuestionsController < ApplicationController
   def create
     @survey_question = SurveyQuestion.new(survey_question_params)
     if @survey_question.save
-      redirect_to root_url, notice: "Survey Question created"
+      redirect_to survey_questions_path, notice: "Survey Question created"
     else
       render :new, alert: "Please try again"
     end
@@ -38,7 +38,7 @@ class SurveyQuestionsController < ApplicationController
 
   def update
     if @survey_question.update_attributes(survey_question_params)
-      redirect_to @survey_question, notice: "Survey Question updated"
+      redirect_to survey_questions_path, notice: "Survey Question updated"
     else
       render :edit, alert: "Please try again"
     end
@@ -46,7 +46,7 @@ class SurveyQuestionsController < ApplicationController
 
   def destroy
     @survey_question.destroy
-    redirect_to root_url, notice: "SurveyQuestion deleted"
+    redirect_to survey_questions_path, notice: "SurveyQuestion deleted"
   end
 
   private
