@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  before_action :set_presentaion, only: [:edit, :update, :destroy]
+  before_action :set_presentation, only: [:edit, :update, :destroy]
   before_filter :assign_patient_or_redirect, only: :show
   before_filter :ensure_accessible_only_once, only: :show
 
@@ -14,7 +14,7 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(presentation_params)
     if @presentation.save
-      redirect_to root_url, notice: "Presentation created"
+      redirect_to presentations_path, notice: "Presentation created"
     else
       render :new, alert: "Please try again"
     end
@@ -29,7 +29,7 @@ class PresentationsController < ApplicationController
 
   def update
     if @presentation.update_attributes(presentation_params)
-      redirect_to @presentation, notice: "Presentation updated"
+      redirect_to presentations_path, notice: "Presentation updated"
     else
       render :edit, alert: "Please try again"
     end
@@ -37,7 +37,7 @@ class PresentationsController < ApplicationController
 
   def destroy
     @presentation.destroy
-    redirect_to root_url, notice: "Presentation deleted"
+    redirect_to presentations_path, notice: "Presentation deleted"
   end
 
   private
