@@ -1,0 +1,732 @@
+
+
+body .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+nav.navbar.navbar-default.navbar-static-top {
+  background-color: #FCD16D;
+  border-color: #E7B43F;
+  height: 80px;
+}
+
+.login_form_wrapper p {
+  float: left;
+  width: 100%;
+}
+.login_form {
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login_form_wrapper h1.text-center {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #5A5A5A;
+}
+.login_form label {
+  float: left;
+  clear: both;
+  font-size: 11px;
+  font-weight: 400;
+  color: #838383;
+  text-transform: uppercase;
+}
+.login_form input {
+  width: 280px;
+  float: left;
+  margin-bottom: 20px;
+  clear: both;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+}
+button.login_button {
+  background-color: #2DC769;
+  color: #FFF;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  width: 100%;
+  padding-top: 17px;
+  padding-bottom: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.pw_reset_link_wrapper {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 6px;
+}
+.pw_reset_link_wrapper a {
+  color: #B0B0B0;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.pw_reset_link_wrapper a:hover {
+  color: #6B6B6B;
+}
+a.waittap_logo {
+  height: 54px;
+  width: 139px;
+  margin-top: 15px;
+  background-position: 12px 12px;
+  background-repeat: no-repeat;
+  background-image: image-url('waittap_logo.png');
+}
+ul.nav.navbar-nav.pull-right {
+  margin-right: 10px;
+}
+ul.nav.navbar-nav.pull-right li a {
+  background-color: #74560B;
+  color: #FFF;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-right: 0px;
+  margin-left: 12px;
+  padding-top: 11px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+}
+ul.nav.navbar-nav.pull-right li a:hover {
+  background-color: #AD8421;
+  color: #FFF;
+}
+.home_page_wrapper p.text-center {
+  color: #7E7E7E;
+}
+.home_page_wrapper p.text-center a {
+  color: #333;
+}
+
+.home_page_wrapper input {
+  float: left;
+  margin-bottom: 10px;
+  clear: both;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 50px;
+}
+.home_page_wrapper input:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+button.home_action_button {
+  background-color: #2DC769;
+  color: #FFF;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 11px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+  width: 80px;
+}
+div#flash_alert {
+  background-color: #FF4949;
+  color: #FFF;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+div#flash_notice {
+  background-color: #37C66D;
+  color: #FFF;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+a.table_button.pull-right {
+  color: #A1A1A1;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.table-condensed.table_padding > tbody > tr > th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.table-condensed.table_padding > tbody > tr > td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.table-condensed > tbody {
+  border-bottom: solid 1px #DDDDDD;
+}
+h2.sub_title {
+  color: #5C5C5C;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+ul.nav.navbar-nav.pull-right li a.new_header_button {
+  background-color: #2DC769;
+  color: #E9FFF2;
+}
+
+.standard_form_wrapper input.form-control {
+  margin-bottom: 10px;
+  clear: both;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 50px;
+}
+.standard_form_wrapper input.form-control:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+button.standard_action_button, a.standard_action_button {
+  background-color: #2DC769;
+  color: #FFF;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 11px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+button.standard_action_button:hover, a.standard_action_button:hover, button.home_action_button:hover {
+  background-color: #1A8939;
+  color: #FFF;
+  text-decoration: none;
+}
+input.datepicker {
+  width:100%;
+  margin-bottom: 0px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+}
+input.timepicker {
+  width:100%;
+  margin-bottom: 0px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+}
+
+.form-group.select.required.patient_user {
+  clear: both;
+}
+.new_patient_field_wrapper {
+  margin-bottom: 30px;
+}
+h1.new_patient_heading {
+  margin-bottom: 30px;
+}
+.survey_question {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.survey_wrapper input {
+  width:100%;
+  margin-bottom: 0px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #EBEBEB;
+  margin-bottom: 15px;
+}
+.survey_wrapper {
+  margin-bottom: 70px;
+}
+
+p.text-center.patient_show_subtitle {
+  font-size: 16px;
+  color: #7B7B7B;
+}
+p.text-center.patient_show_subtitle.presentation_info {
+  font-size: 16px;
+  color: #7B7B7B;
+  margin-bottom: 30px;
+}
+
+a.finish_action_button {
+  background-color: #2DC769;
+  color: #FFF;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 11px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  float: left;
+  margin-top: 20px;
+}
+
+a.finish_action_button:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.patient_show_user_footer {
+  float: left;
+  width: 100%;
+  border-top: solid 1px #DDDDDD;
+}
+
+nav.navbar.navbar-default.navbar-static-top .navbar-toggle {
+  border-color: #FFF;
+  margin-top: 22px;
+}
+
+nav.navbar.navbar-default.navbar-static-top .navbar-toggle .icon-bar {
+  background-color: #FFF;
+}
+
+nav.navbar.navbar-default.navbar-static-top .navbar-toggle:hover, nav.navbar.navbar-default.navbar-static-top .navbar-toggle:focus {
+  background-color: #997521;
+}
+div#bs-example-navbar-collapse-1 {
+  margin-top: 10px;
+  background-color: #FCD16D;
+  border-color: #E7B43F;
+}
+
+ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
+  color: #FFF;
+}
+.home_token_form_wrapper {
+  margin-bottom: 40px;
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+.home_token_form_wrapper p {
+  margin-bottom: 0px;
+}
+.body_diagram_wrapper {
+  padding-bottom: 60px;
+}
+.home_link_list p {
+  float: left;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.home_link_list p a {
+  background-color: #EBEBEB;
+  color: #696969;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  float: left;
+}
+.home_link_list p a:hover {
+  background-color: #FCD16D;
+  color: #74560B;
+}
+.home_table_wrapper {
+  float: left;
+  width: 100%;
+}
+.body_diagram {
+  width: 320px;
+  height: 1660px;
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  background-image: image-url('body_diagram.jpg');
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.body_diagram input[type="radio"] {
+  display: none;
+}
+.body_diagram span {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.body_diagram .radio label {
+  text-indent: 0px;
+  padding-top: 60px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+
+}
+
+.body_diagram .radio label:hover {
+  text-indent: 0px;
+  padding-top: 60px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #9BD7B2;
+  font-size: 14px;
+  font-weight: 800;
+}
+.body_diagram .radio label.highlight {
+  text-indent: 0px;
+  padding-top: 60px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #2DC769;
+  font-size: 14px;
+  font-weight: 800;
+}
+button.standard_action_button.body_parts_button {
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+/* Front - Head */
+.body_diagram .radio label[for=patient_bodypart_id_1] {
+  margin-left: 107px;
+  height: 125px;
+  width: 90px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Front - Chest */
+.body_diagram .radio label[for=patient_bodypart_id_2] {
+  margin-left: 91px;
+  margin-top: 150px;
+  height: 125px;
+  width: 130px;
+  position: absolute;
+  z-index: 4;
+  padding-top: 40px;
+}
+
+/* Front - Abdomen */
+.body_diagram .radio label[for=patient_bodypart_id_3] {
+  margin-left: 91px;
+  margin-top: 275px;
+  height: 85px;
+  width: 130px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Front - Pelvis */
+.body_diagram .radio label[for=patient_bodypart_id_4] {
+  margin-left: 81px;
+  margin-top: 360px;
+  height: 55px;
+  width: 150px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Front - Shoulders & arms */
+.body_diagram .radio label[for=patient_bodypart_id_5] {
+  margin-left: 0px;
+  margin-top: 130px;
+  height: 345px;
+  width: 320px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Front - Hips & legs */
+.body_diagram .radio label[for=patient_bodypart_id_6] {
+  margin-left: 78px;
+  margin-top: 415px;
+  height: 365px;
+  width: 160px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Back - Back */
+.body_diagram .radio label[for=patient_bodypart_id_7] {
+  margin-left: 93px;
+  margin-top: 995px;
+  height: 225px;
+  width: 130px;
+  position: absolute;
+  z-index: 4;
+  padding-top: 100px;
+}
+
+/* Back - Head & neck */
+.body_diagram .radio label[for=patient_bodypart_id_8] {
+  margin-left: 110px;
+  margin-top: 862px;
+  height: 125px;
+  width: 90px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Back - Shoulders & arms */
+.body_diagram .radio label[for=patient_bodypart_id_9] {
+  margin-left: 0px;
+  margin-top: 987px;
+  height: 338px;
+  width: 320px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Back - Buttocks */
+.body_diagram .radio label[for=patient_bodypart_id_10] {
+  margin-left: 81px;
+  margin-top: 1220px;
+  height: 72px;
+  width: 150px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* Back - Hips & legs */
+.body_diagram .radio label[for=patient_bodypart_id_11] {
+  margin-left: 78px;
+  margin-top: 1292px;
+  height: 315px;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+}
+ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
+  color: #E9FFF2;
+  background-color: #43AB6C;
+}
+a.standard_back_button {
+  background-color: #F0F0F0;
+  color: #626262;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 11px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+  float: left;
+  margin-right: 10px;
+}
+a.standard_back_button:hover {
+  background-color: #CFCFCF;
+  color: #626262;
+  text-decoration: none;
+}
+
+
+
+
+.feed_welcome_header {
+  width: 100%;
+  border-bottom: solid 1px #DDDDDD;
+}
+.feed_welcome_header h1 {
+  font-size: 24px;
+  color: #616161;
+}
+.feed_token_wrapper h2 {
+  font-size: 22px;
+  color: #8C8C8C;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 0px;
+}
+.feed_divider {
+  width: 100%;
+  border-bottom: solid 1px #DDDDDD;
+  margin-bottom: 50px;
+}
+p.no_feed_data_title {
+  font-size: 20px;
+  color: #9D9D9D;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+span.feed_or_wrapper {
+  color: #ccc;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 16px;
+}
+.bodyparts_action_button_wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+li.dropdown a .caret {
+  margin-top: -3px;
+  margin-left: 15px;
+  margin-right: 4px;
+}
+.navbar-nav > li > .dropdown-menu {
+  margin-top: -3px;
+  margin-left: 12px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border: none;
+  background-color: #61480C;
+  width: 192px;
+  padding-top: 0px;
+}
+ul.nav.navbar-nav.pull-right li ul.dropdown-menu li a {
+  background-color: #61480C;
+  margin-left: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0px;
+  border-radius: 0px;
+}
+ul.nav.navbar-nav.pull-right li.dropdown.open a.dropdown-toggle {
+  border-radius: 4px 4px 0px 0px;
+  background-color: #604712;
+  color: #FFFFFF;
+}
+ul.nav.navbar-nav.pull-right li ul.dropdown-menu li a:hover {
+  background-color: #4F3B0B;
+}
+p.patients_show_button_wrapper {
+  margin-top: 30px;
+}
+.patient_show_info_wrapper p {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+input.dummy_textfield {
+  background-color: #ECECEC;
+  border: none;
+  outline: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+#dummy {
+  background-color: #ECECEC;
+  border: none;
+  outline: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+
+
+@media screen and (max-width: 769px) {
+
+  ul.nav.navbar-nav.pull-right li a {
+    background-color: transparent;
+    color: #FFF;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    float: right;
+  }
+  ul.nav.navbar-nav.pull-right {
+    margin-right: 0px;
+    float: left;
+  }
+  ul.nav.navbar-nav.pull-right li a.new_header_button {
+    background-color: transparent;
+    color: #FFFFFF;
+    text-align: right;
+  }
+  ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
+    color: #AD8421;
+    background-color: transparent;
+  }
+  .new_patient_field_wrapper .picker {
+    width: 91%;
+  }
+  ul.nav.navbar-nav.pull-right li a:hover {
+    color: #AD8421;
+    background-color: transparent;
+  }
+  .bodyparts_action_button_wrapper {
+    position: relative;
+    top: 0px;
+    margin-left: 0px;
+  }
+  ul.nav.navbar-nav.pull-right li ul.dropdown-menu li a {
+    background-color: transparent;
+    margin-left: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
+    border-radius: 0px;
+    color: #FFFFFF;
+  }
+  ul.nav.navbar-nav.pull-right li.dropdown.open a.dropdown-toggle {
+    border-radius: 4px 4px 0px 0px;
+    background-color: transparent;
+    color: #FFFFFF;
+  }
+  ul.nav.navbar-nav.pull-right li ul.dropdown-menu li a:hover {
+    background-color: transparent;
+    color: #AD8421;
+  }
+}
+
+
+
+@media screen and (max-width: 350px) {
+
+.body_diagram_wrapper {
+  margin-left: -15px;
+}
+label.radio_buttons.optional.control-label {
+  padding-left: 10px;
+}
+}

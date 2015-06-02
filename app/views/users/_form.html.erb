@@ -1,0 +1,14 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <% if current_user.admin %>
+    <%= f.input :clinician %>
+    <%= f.input :admin %>
+  <% end %>
+  <% if current_user && current_user.super_user && @user.persisted? %>
+    <%= f.association :practice %>
+  <% end %>
+  <button type="submit" class="standard_action_button">Update User</button>
+<% end %>

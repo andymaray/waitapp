@@ -1,0 +1,57 @@
+<div class="feed_welcome_header">
+  <h1>
+    Welcome <%= @user.name %>
+  </h1>
+</div>
+
+<% if @user_patients.empty? %>
+  <p class="no_feed_data_title">No current patient data available.</p>
+  <p>
+    <%= link_to "Create a new token", new_patient_url, class:"standard_action_button" %>
+    <span class="feed_or_wrapper">or</span>
+    <%= link_to "Search", root_url, class:"standard_action_button" %>
+  </p>
+<% end %>
+
+<% @user_patients.each do |patient| %>
+  <div class="feed-item">
+    <div class="feed_token_wrapper">
+      <h2>
+        Token <%= patient.token %>
+      </h2>
+    </div>
+
+    <h2 class="text-center">
+      Appointment for <%= formatted_time(patient) %>
+    </h2>
+
+    <p class="text-center patient_show_subtitle">
+        Bodypart: <%= patient.bodypart_name %>
+    </p>
+
+    <p class="text-center patient_show_subtitle presentation_info">
+      Presentation: <%= patient.presentation_name %>
+    </p>
+
+    <table class="table">
+      <th>
+        Question
+      </th>
+      <th>
+        Answer
+      </th>
+      <% find_patients_answers(patient) %>
+      <% @patient_answers.each do |patient_answer| %>
+        <tr>
+          <td>
+            <%= @survey_questions.find(patient_answer.survey_question_id).question %>
+          </td>
+          <td>
+            <%= patient_answer.answer %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<div class="feed_divider"></div>
+<% end %>

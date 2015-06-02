@@ -1,0 +1,20 @@
+<div class="login_form_outer">
+  <div class="user_confirmation_form_header">
+    <h1>Please reset your password here</h1>
+  </div>
+  <div class="login_form_wrapper">
+    <div class="login_form">
+      <%= simple_form_for @user, url: password_reset_url(params[:id]) do |f| %>
+        <div class="field_wrapper user_confirmation_inputs">
+          <%= f.input :password, required: true %>
+        </div>
+        <div class="field_wrapper user_confirmation_inputs">
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+        <div class="field_wrapper">
+          <button class="login_button" id="login" type="submit"></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

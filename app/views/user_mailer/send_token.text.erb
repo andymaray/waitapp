@@ -1,0 +1,11 @@
+Token generated!
+
+Please send the following URL to the patient immediately (case sensitive):
+
+URL <%= bodypart_url(@patient.token) %>
+
+Or visit <%= link_to 'waittap.com', root_url %> and use token <%= @patient.token %>
+
+This token relates to the appointment on <%= @patient.appointment_time.strftime("%H:%M, %d %B %Y") %> with Dr <%= @patient.user_name %>
+
+If you didn't request this token, please delete this message.

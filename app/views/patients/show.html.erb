@@ -1,0 +1,19 @@
+<h1>Token generated!</h1>
+<div class="patient_show_info_wrapper">
+  <p>Please send the following token to the patient immediately (case sensitive):</p>
+
+  <p>URL <strong><%= bodypart_url(@patient.token) %></strong></p>
+
+  <p>Or visit <%= link_to 'waittap.com', root_url %> and use token <strong><%= @patient.token %></strong></p>
+
+  <p>This token relates to the appointment on: <strong><%= @patient.appointment_time.strftime("%H:%M, %d %B %Y") %></strong> with <strong>Dr <%= @patient.user_name %></strong></p>
+  <p>
+    Send:
+    <input type="text" name="dummy", id="dummy", placeholder="Mobile (dummy field)">
+  </p>
+</div>
+<div>
+  <p class="patients_show_button_wrapper">
+    <%= link_to 'Today\'s tokens', patients_url, class:"standard_action_button" %>
+  </p>
+</div>

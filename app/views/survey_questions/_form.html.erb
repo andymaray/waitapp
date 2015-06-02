@@ -1,0 +1,7 @@
+<%= simple_form_for @survey_question do |f| %>
+  <%= f.input :question %>
+  <%= f.input :question_type, collection: ['Text', 'Yes / No', 'Time', 'Pain', 'Fluid Colour', 'Fluid Texture'] %>
+  <%= f.input :mandatory %>
+  <%= f.association :presentation %>
+  <%= f.button :submit %>
+<% end %>

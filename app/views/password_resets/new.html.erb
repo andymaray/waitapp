@@ -1,0 +1,17 @@
+<div class="login_form_outer">
+  <div class="login_form_wrapper">
+    <div class="login_form">
+      <h1>Reset your password here</h1>
+      <%= form_tag password_resets_path, method: :post do %>
+        <div class="field_wrapper user_confirmation_inputs">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+        <div class="field_wrapper">
+          <button class="standard_action_button" id="login" type="submit">Reset Password</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

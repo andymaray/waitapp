@@ -1,0 +1,77 @@
+<div class="home_page_wrapper">
+  <h1 class="text-center">Welcome to Waittapp!</h1>
+
+  <% if current_user && current_user.super_user %>
+    <div class="home_link_list">
+      <h2 class="sub_title">Create new data</h2>
+      <p>
+        <%= link_to "New user", new_user_url %>
+      </p>
+      <p>
+        <%= link_to "New practice", new_practice_url %>
+      </p>
+      <!-- <p>
+        <#%= link_to "New bodypart", new_bodypart_url %>
+      </p> -->
+      <p>
+        <%= link_to "New presentation", new_presentation_url %>
+      </p>
+      <p>
+        <%= link_to "New question", new_survey_question_url %>
+      </p>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <% if current_user.admin? %>
+      <div class="home_table_wrapper">
+      <h2 class="sub_title">All users</h2>
+        <table class="table table-condensed table_padding">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Practice</th>
+            <th>
+              <span class="pull-right">Options</span>
+            </th>
+          </tr>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= user.name %>
+              </td>
+              <td>
+                <%= user.email %>
+              </td>
+              <td>
+                <%= user.practice_name %>
+              </td>
+              <td>
+                <%= link_to 'Delete', user, method: :delete, class:"table_button pull-right" %>
+                <%= link_to 'Edit', edit_user_path(user), class:"table_button pull-right" %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <% end %>
+
+    <div class="home_token_form_wrapper">
+      <h2 class="sub_title">Find patient by token</h2>
+      <%= simple_form_for :patient_answer, { url: patient_answers_path } do |f| %>
+        <%= f.input :doctors_token, label: 'Token' %>
+        <button type="submit" class="home_action_button">Find</button>
+
+    <% end %>
+    </div>
+  <% else %>
+    <p class="text-center">If you're a doctor visiting this page, please <%= link_to 'login', login_path %>.</p>
+    <p class="text-center">If you're a patient, please enter your token below - or your unique URL into the browser. Contact your practice if you don't have access to this.</p>
+    <div>
+      <%= simple_form_for :bodypart, { url: bodyparts_path } do |f| %>
+        <%= f.input :token %>
+        <button type="submit" class="home_action_button">Go</button>
+    <% end %>
+    </div>
+  <% end %>
+</div>

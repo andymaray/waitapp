@@ -1,0 +1,32 @@
+<h1 class="text-center">
+  Manage Practices
+</h1>
+</br>
+<table class="table">
+  <th>
+    Name
+  </th>
+  <th>
+  </th>
+  <th>
+  </th>
+  <% @practices.each do |p| %>
+    <tr>
+      <td>
+        <%= p.name %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_practice_path(p), class:"table_button pull-right" %>
+      </td>
+      <td>
+        <%= link_to 'Delete', p, method: :delete, class:"table_button pull-right" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="home_link_list">
+  <p>
+    <%= link_to 'New Practice', new_practice_url %>
+  </p>
+</div>

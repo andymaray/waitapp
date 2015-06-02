@@ -1,0 +1,5 @@
+<%= simple_form_for @patient do |f| %>
+  <%= f.association :presentation, collection: @presentations %>
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,6 @@
+<%= simple_form_for @patient do |f| %>
+  <%= f.association :presentation, collection: @presentations %>
+  <%= link_to 'Back', :back , class:"standard_back_button" %>
+  <button type="submit" class="standard_action_button">Next</button>
+<% end %>
+

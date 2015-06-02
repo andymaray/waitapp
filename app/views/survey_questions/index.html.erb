@@ -1,0 +1,56 @@
+<h1 class="text-center">
+  Manage Questions
+</h1>
+</br>
+<table class="table">
+  <th>
+    Question
+  </th>
+  <th>
+    Presentation
+  </th>
+  <th>
+    Question Type
+  </th>
+  <th>
+    Mandatory?
+  </th>
+  <th>
+  </th>
+  <th>
+  </th>
+  <% @survey_questions.each do |q| %>
+    <tr>
+      <td>
+        <%= q.question %>
+      </td>
+      <td>
+        <% if q.presentation %>
+          <%= q.presentation_name %>
+        <% else %>
+          All
+        <% end %>
+      </td>
+
+      <td>
+        <%= q.question_type %>
+      </td>
+      <td>
+        <%= q.mandatory %>
+      </td>
+
+      <td>
+        <%= link_to 'Edit', edit_presentation_url(q), class:"table_button pull-right" %>
+      </td>
+      <td>
+        <%= link_to 'Delete', q, method: :delete, class:"table_button pull-right" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="home_link_list">
+  <p>
+    <%= link_to 'New Question', new_survey_question_url %>
+  </p>
+</div>

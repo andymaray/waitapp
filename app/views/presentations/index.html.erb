@@ -1,0 +1,38 @@
+<h1 class="text-center">
+  Manage Presentations
+</h1>
+</br>
+<table class="table">
+  <th>
+    Presentation
+  </th>
+  <th>
+    Bodypart
+  </th>
+  <th>
+  </th>
+  <th>
+  </th>
+  <% @presentations.each do |p| %>
+    <tr>
+      <td>
+        <%= p.name %>
+      </td>
+      <td>
+        <%= p.bodypart_name %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_presentation_url(p), class:"table_button pull-right" %>
+      </td>
+      <td>
+        <%= link_to 'Delete', p, method: :delete, class:"table_button pull-right" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="home_link_list">
+  <p>
+    <%= link_to 'New Presentation', new_presentation_url %>
+  </p>
+</div>

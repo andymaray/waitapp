@@ -1,0 +1,21 @@
+<div class="login_form_wrapper">
+  <h1 class="text-center">Waittap Log in</h1>
+  <div>
+    <div class="login_form">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+          <button type="submit" class="login_button">Log In</button>
+        </p>
+      <% end %>
+      <div class="pw_reset_link_wrapper">
+        <%= link_to "Forgotten Password?", new_password_reset_url %>
+      </div>
+    </div>
+  </div>
+</div>

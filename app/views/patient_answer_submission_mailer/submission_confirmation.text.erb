@@ -1,0 +1,8 @@
+New information submitted via Waittap
+
+<%= @greeting %>, the patient with token
+<%= @patient.token %> visiting you
+<%= @appointment_time %> has submitted details of their presentation via Waittap.
+
+Full diagnostic information on this patient can be viewed here:
+<%= link_to "Patient #{@patient.token}", patient_answer_url(@patient.token) %>

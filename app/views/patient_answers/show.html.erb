@@ -1,0 +1,44 @@
+<h1 class="text-center">
+  Appointment for <%= formatted_time(@patient) %>
+</h1>
+<% if @patient.bodypart && @patient.presentation %>
+
+  <p class="text-center patient_show_subtitle">
+    Bodypart: <%= @patient.bodypart_name %>
+  </p>
+
+  <p class="text-center patient_show_subtitle presentation_info">
+    Presentation: <%= @patient.presentation_name %>
+  </p>
+
+  <table class="table">
+    <th>
+      Question
+    </th>
+    <th>
+      Answer
+    </th>
+    <% @patient_answers.each do |pa| %>
+      <tr>
+        <td>
+          <%= @survey_questions.find(pa.survey_question_id).question %>
+        </td>
+        <td>
+          <%= pa.answer %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% if current_patient %>
+  <div class="patient_show_user_footer">
+    <p>
+      <%= link_to 'Finish', root_url, class:"finish_action_button" %>
+    </p>
+  </div>
+  <% end %>
+<% else %>
+  <p class="text-center">
+    The patient hasn't completed this form. Please wait until email confirmation before accessing.
+  </p>
+<% end %>

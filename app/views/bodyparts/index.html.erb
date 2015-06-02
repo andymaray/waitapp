@@ -1,0 +1,18 @@
+<h1 class="text-center">
+  Bodyparts
+</h1>
+
+<table class="table">
+  <th>
+    Name
+  </th>
+  <th>
+  <% @bodyparts.each do |b| %>
+    <tr>
+      <td>
+        <%= b.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
