@@ -1,10 +1,11 @@
 class PatientsController < ApplicationController
 
   def index
+    patients = find_patients(params[:clinician_id])
     if params[:search]
-      @patients = Patient.search_by_date(params[:start_date], params[:end_date], params[:page])
+      @patients = patients.search_by_date(params[:start_date], params[:end_date], params[:page])
     else
-      @patients = Patient.paginate(page: params[:page], per_page: 10).order("created_at desc")
+      @patients = patients.paginate(page: params[:page], per_page: 10).order("created_at desc")
     end
   end
 
@@ -67,6 +68,10 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 
+  def todays_token
+    @patients = Patient.todays_tokens
+  end
+
   private
     def patient_params
       params.require(:patient).permit(
@@ -77,5 +82,14 @@ class PatientsController < ApplicationController
         :presentation_id,
         patient_answers_attributes: [:answer, { answer: [] }, :id]
       )
+    end
+
+    def find_patients(clinician)
+      if clinician.present?
+        user = User.find(params[:clinician_id])
+        user.patients
+      else
+        Patient
+      end
     end
 end

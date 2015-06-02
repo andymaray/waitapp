@@ -12,6 +12,9 @@
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
   <%= hidden_field_tag :search, true %>
+  <% if params[:clinician_id].present? %>
+    <%= hidden_field_tag :clinician_id, params[:clinician_id] %>
+  <% end %>
   <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
 <% end %>
 <table class="table">
@@ -19,16 +22,12 @@
   <th>Token</th>
   <th>Appointment Time</th>
   <th>Created At</th>
-  <th>Send</th>
   <% @patients.each do |patient| %>
     <tr>
       <td><%= patient.user.name %></td>
       <td><%= patient.token %></td>
       <td><%= patient.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
       <td><%= patient.created_at.strftime("%Y-%m-%d") %></td>
-      <td>
-        <input type="text" name="dummy" placeholder="Mobile (dummy field)" class="dummy_textfield">
-      </td>
     </tr>
   <% end %>
   <%= will_paginate @patients %>
