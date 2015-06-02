@@ -1,4 +1,5 @@
 class PracticesController < ApplicationController
+  before_action :set_practice, only: [:edit, :update, :destroy, :show]
 
   def index
     @practices = Practice.order(:name)
@@ -11,24 +12,21 @@ class PracticesController < ApplicationController
   def create
     @practice = Practice.new(practice_params)
     if @practice.save
-      redirect_to root_url, notice: "Practice created"
+      redirect_to practices_path, notice: "Practice created"
     else
       render :new, alert: "Please try again"
     end
   end
 
   def show
-    @practice = Practice.find(params[:id])
   end
 
   def edit
-    @practice = Practice.find(params[:id])
   end
 
   def update
-    @practice = Practice.find(params[:id])
     if @practice.update_attributes(practice_params)
-      redirect_to @practice, notice: "Practice updated"
+      redirect_to practices_path, notice: "Practice updated"
     else
       render :edit, alert: "Please try again"
     end
@@ -36,7 +34,7 @@ class PracticesController < ApplicationController
 
   def destroy
     @practice.destroy
-    redirect_to root_url, notice: "Practice deleted"
+    redirect_to practices_path, notice: "Practice deleted"
   end
 
   private
@@ -44,7 +42,7 @@ class PracticesController < ApplicationController
       params.require(:practice).permit(:name)
     end
 
-    def set_presentation
+    def set_practice
       @practice = Practice.find(params[:id])
     end
 end
