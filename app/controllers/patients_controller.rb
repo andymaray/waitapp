@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
-
+  before_filter :restrict_to_admins, only: [:index]
   def index
-    patients = find_patients(params[:clinician_id])
+    patients = find_patients
     if params[:search]
       @patients = patients.search_by_date(params[:start_date], params[:end_date], params[:page])
     else
@@ -84,12 +84,18 @@ class PatientsController < ApplicationController
       )
     end
 
-    def find_patients(clinician)
-      if clinician.present?
+    def find_patients
+      if params[:clinician_id].present?
         user = User.find(params[:clinician_id])
         user.patients
       else
         Patient
+      end
+    end
+
+    def restrict_to_admins
+      if !current_admin && !params[:clinician_id].present?
+        redirect_to root_url, alert: "Only administrators can access this resource"
       end
     end
 end
