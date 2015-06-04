@@ -3,20 +3,24 @@
 <head>
   <title>Waittap</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-<%= render 'layouts/nav' %>
-
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+<% unless params[:modal].present? %>
+  <%= render 'layouts/nav' %>
+<% end %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+    <div class="col-md-3"></div>
   </div>
-  <div class="col-md-3"></div>
-</div>
+  <% unless params[:modal].present? %>
+    <%= render partial: "layouts/modal"%>
+  <% end %>
 </body>
 </html>

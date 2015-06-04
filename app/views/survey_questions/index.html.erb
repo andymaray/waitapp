@@ -2,28 +2,17 @@
   Manage Questions
 </h1>
 </br>
+
 <table class="table">
-  <th>
-    Question
-  </th>
-  <th>
-    Presentation
-  </th>
-  <th>
-    Question Type
-  </th>
-  <th>
-    Mandatory?
-  </th>
-  <th>
-  </th>
-  <th>
-  </th>
+  <th>Question</th>
+  <th>Presentation</th>
+  <th>Question Type</th>
+  <th>Mandatory?</th>
+  <th>Translations</th>
+  <th>Actions</th>
   <% @survey_questions.each do |q| %>
     <tr>
-      <td>
-        <%= q.question %>
-      </td>
+      <td><%= q.question %></td>
       <td>
         <% if q.presentation %>
           <%= q.presentation_name %>
@@ -31,18 +20,17 @@
           All
         <% end %>
       </td>
-
+      <td><%= q.question_type %></td>
+      <td><%= q.mandatory %></td>
       <td>
-        <%= q.question_type %>
+        <%= q.language.name%>
+        <% q.translates.each do |translate| %>
+          <%= ", " + translate.language.name %>
+        <% end %>
       </td>
       <td>
-        <%= q.mandatory %>
-      </td>
-
-      <td>
+        <%= link_to "Translate", "#ModalDialog", :"data-remote" => new_translate_path(id: q.id, modal: true), :role => "button", :class => "btn btn-warning", :"data-target" => "#ModalDialog", :"modal-instructions" => "", :"modal-title" => "Translate" %>
         <%= link_to 'Edit', edit_survey_question_url(q), class:"table_button pull-right" %>
-      </td>
-      <td>
         <%= link_to 'Delete', q, method: :delete, class:"table_button pull-right" %>
       </td>
     </tr>

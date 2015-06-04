@@ -1,7 +1,16 @@
 <%= simple_form_for @survey_question do |f| %>
   <%= f.input :question %>
   <%= f.input :question_type, collection: ['Text', 'Yes / No', 'Time', 'Pain', 'Fluid Colour', 'Fluid Texture'] %>
+	<%= f.input :language_id, collection: Language.all %>
   <%= f.input :mandatory %>
   <%= f.association :presentation %>
+  <%= label_tag "Translate Question" %>
+  <% unless @survey_question.new_record? %>
+	  <%= f.simple_fields_for :translates do |translate_form| %>
+	  <%= translate_form.input :question %>
+	  <%= translate_form.input :language_id, collection: Language.all, disabled: true %>
+	  <hr/>
+	  <% end %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>

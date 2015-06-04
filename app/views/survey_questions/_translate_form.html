@@ -1,0 +1,9 @@
+<%= form_tag translate_survey_question_path(params[:id]), method: :post do |f| %>
+	<%= label_tag :question %>
+	<%= text_field_tag :question, @question, disabled: true, class: "form-control"%>
+  <%= label_tag :translate %>
+  <%= text_field_tag :translate, nil, class: "form-control"%>
+  <%= label_tag :language%>
+	<%= select_tag :language_id, options_from_collection_for_select(Language.all, "id", "name"), class: "form-control" %>
+  <%= submit_tag :submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= simple_form_for @translate do |f| %>
+  <%= f.input :survey_question_id, as: :hidden, input_html: { value: @survey_question.id} %>
+  <%= text_field_tag :question, @survey_question.question, disabled: true, class: "form-control"%>
+  <%= f.input	:question, label: :Translate, as: :text %>
+	<%= f.input :language_id, collection: @translates %>
+  <%= f.button :submit %>
+<% end %>

@@ -13,11 +13,15 @@
 
 class SurveyQuestion < ActiveRecord::Base
   belongs_to :presentation
+  belongs_to :language
   has_many :patient_answers
   has_many :patients, through: :patient_answers
+  has_many :translates
   accepts_nested_attributes_for :patient_answers
+  accepts_nested_attributes_for :translates
 
   validates :question, presence: true
+  validates :language_id, presence: true
 
   delegate :name, to: :presentation, prefix: true
 

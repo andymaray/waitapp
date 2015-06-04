@@ -14,8 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require bootstrap-datepicker
+//= require spin.min
+//= require jquery.spin
 //= require site
+//= require survey_questions
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers

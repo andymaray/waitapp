@@ -23,6 +23,7 @@ class Permission < Struct.new(:user)
         return true if controller == 'bodyparts' && user.super_user?
         return true if controller == 'presentations' && user.super_user?
         return true if controller == 'survey_questions' && user.super_user?
+        return true if controller == 'translates' && user.super_user?
         return true if controller == 'practices' && user.super_user?
     end
     false

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :bodyparts
   resources :presentations
   resources :survey_questions
+  resources :translates
   resources :password_resets, only: [:new, :create, :edit, :update]
   root to: 'users#index'
 end

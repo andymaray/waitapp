@@ -52,7 +52,7 @@ class SurveyQuestionsController < ApplicationController
   private
 
     def survey_question_params
-      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id)
+      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id, :language_id)
     end
 
     def set_survey_question
