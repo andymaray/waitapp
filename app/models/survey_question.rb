@@ -14,11 +14,15 @@
 class SurveyQuestion < ActiveRecord::Base
   belongs_to :presentation
   belongs_to :language
+
   has_many :patient_answers
   has_many :patients, through: :patient_answers
   has_many :translates
+  has_many :survey_question_choices
+
   accepts_nested_attributes_for :patient_answers
-  accepts_nested_attributes_for :translates
+  accepts_nested_attributes_for :translates, :reject_if => lambda { |a| a[:question].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :survey_question_choices, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
 
   validates :question, presence: true
   validates :language_id, presence: true

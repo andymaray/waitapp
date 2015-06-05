@@ -1,5 +1,5 @@
 class Translate < ActiveRecord::Base
-	belongs_to :survey_questions
+	belongs_to :survey_question
 	belongs_to :language
 
 	validates :question, presence: true

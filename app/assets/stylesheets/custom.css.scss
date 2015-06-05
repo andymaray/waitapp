@@ -418,7 +418,9 @@ button.standard_action_button.body_parts_button {
   display: block;
 }
 
-
+#add_survey_question_choices, #survey_question_choices_hide{
+  display: none;
+}
 /* Front - Head */
 .body_diagram .radio label[for=patient_bodypart_id_1] {
   margin-left: 107px;

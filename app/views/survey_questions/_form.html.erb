@@ -1,14 +1,24 @@
 <%= simple_form_for @survey_question do |f| %>
   <%= f.input :question %>
-  <%= f.input :question_type, collection: ['Text', 'Yes / No', 'Time', 'Pain', 'Fluid Colour', 'Fluid Texture'] %>
+  <%= f.label :question_type %>
+  <%= f.select :question_type, options_for_select(['Text', 'Yes / No', 'Time', 'Pain', 'Fluid Colour', 'Fluid Texture', 'Choices']), {}, {class: "select form-control #{@survey_question.new_record? ? 'survey_question_type' : '' }"}  %>
+  <div id="<%= @survey_question.new_record? ? 'add_survey_question_choices' : @survey_question.question_type == 'Choices' ? '' : 'survey_question_choices_hide'  %>">
+    <%= link_to_add_fields "Add Choice", f, :survey_question_choices, @survey_question %>
+  </div>
+  <div id="choices">
+    <%= f.fields_for :survey_question_choices do |builder| %>
+      <%= render 'survey_question_choices_fields', f: builder%>
+    <% end %>
+  </div>
 	<%= f.input :language_id, collection: Language.all %>
   <%= f.input :mandatory %>
   <%= f.association :presentation %>
-  <%= label_tag "Translate Question" %>
+  <%= label_tag "Translate Question" if @survey_question.translates%>
   <% unless @survey_question.new_record? %>
-	  <%= f.simple_fields_for :translates do |translate_form| %>
-	  <%= translate_form.input :question %>
-	  <%= translate_form.input :language_id, collection: Language.all, disabled: true %>
+	  <%= f.fields_for :translates do |translate_form| %>
+	  <%= translate_form.input :question, label: "Translate in #{translate_form.object.language.name}" %>
+	  <%= translate_form.input :language_id, as: :hidden, input_html: { value: translate_form.object.language_id} %>
+    <%= translate_form.input :survey_question_id, as: :hidden, input_html: { value: translate_form.object.survey_question_id} %>
 	  <hr/>
 	  <% end %>
   <% end %>

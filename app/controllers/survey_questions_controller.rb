@@ -5,7 +5,7 @@ class SurveyQuestionsController < ApplicationController
   before_filter :ensure_accessible_only_once, only: :show
 
   def index
-    @survey_questions = SurveyQuestion.all_with_presentations
+    @survey_questions = SurveyQuestion.all_with_presentations.paginate(page: params[:page], per_page: 4)
   end
 
   def new
@@ -52,7 +52,7 @@ class SurveyQuestionsController < ApplicationController
   private
 
     def survey_question_params
-      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id, :language_id)
+      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id, :language_id, translates_attributes: [:question, :language_id, :id, :survey_question_id], survey_question_choices_attributes: [:name, :_destroy, :id])
     end
 
     def set_survey_question

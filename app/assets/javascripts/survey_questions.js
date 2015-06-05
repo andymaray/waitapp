@@ -24,5 +24,32 @@ $(function () {
       $("#ModalDialog").modal("show");
       return
     });
-  });  
+  });
+
+  $("body").on("change", ".survey_question_type", function(ev){
+    if($(this).val() == "Choices"){
+      $("#add_survey_question_choices").show();
+    }
+    else {
+      $("#choices").html('');
+      $("#add_survey_question_choices").hide();
+    }
+  });
+
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('.fields').hide();
+    return event.preventDefault();
+  });
+
+  window.remove_fields = function(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").hide();
+  }
+
+  window.add_fields = function(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $('#choices').append(content.replace(regexp, new_id));
+  }
 });
