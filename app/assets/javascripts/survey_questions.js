@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('ready page:load', function(){
   $("body").on("click", "a[data-target=#ModalDialog]", function(ev) {
     var instructions, opts, spinner, target, title;
     opts = {
@@ -22,7 +22,6 @@ $(function () {
     $("#ModalDialog .modal-body").load(target, function() {
       $(".spinner").hide(); // Hide the spinner
       $("#ModalDialog").modal("show");
-      return
     });
   });
 

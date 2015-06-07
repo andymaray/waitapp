@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Waittap</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true unless params[:modal].present? %>
+    <%= javascript_include_tag 'modal', media: 'all', 'data-turbolinks-track' => true if params[:modal].present? %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
