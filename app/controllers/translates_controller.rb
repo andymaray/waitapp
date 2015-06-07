@@ -7,6 +7,7 @@ class TranslatesController < ApplicationController
 	end
 
 	def create
+    params[:translate][:choices] = params[:translate_question_choices].reject(&:blank?) if params[:translate_question_choices].present?
 		@translate = Translate.new(translate_params)
 		if @translate.save
       redirect_to survey_questions_path, notice: "Question is successfully translated"
@@ -20,7 +21,7 @@ class TranslatesController < ApplicationController
   private
 
     def translate_params
-      params.require(:translate).permit(:question, :survey_question_id, :language_id)
+      params.require(:translate).permit(:question, :survey_question_id, :language_id, choices: [])
     end
 
     def get_languages

@@ -1,28 +1,26 @@
 <h1 class="new_patient_heading">Patient History</h1>
-<div class="survey_wrapper">
-<%= simple_form_for @patient do |patient| %>
-  <%= patient.input :questionnaire_complete, :as => :hidden, :input_html => { :value => true } %>
-  <%= patient.simple_fields_for :patient_answers do |patient_answer| %>
-    <div class="survey_question">
-      <%= patient_answer.object.survey_question.question %>
-    </div>
-<!-- Start of if logic for question question_type -->
-    <% if patient_answer.object.survey_question.question_type == 'Yes / No' %>
-      <%= patient_answer.input :answer, as: :radio_buttons, collection: [["Yes", "Yes"], ["No", "No"]], label_method: :first, value_method: :last %></br>
-    <% elsif patient_answer.object.survey_question.question_type == 'Time' %>
-      <%= patient_answer.input :answer, as: :datetime_picker %></br> <!-- to be formatted -->
-    <% elsif patient_answer.object.survey_question.question_type == 'Pain' %>
-      <%= patient_answer.input :answer, as: :check_boxes, collection: %w(Dull Sharp Stabbing Squeezing Intermittent)%></br>
-    <% elsif patient_answer.object.survey_question.question_type == 'Fluid Colour' %>
-      <%= patient_answer.input :answer, as: :check_boxes, collection: %w(Bloody Yellow Green White Black Normal)%></br>
-    <% elsif patient_answer.object.survey_question.question_type == 'Fluid Texture' %>
-      <%= patient_answer.input :answer, as: :check_boxes, collection: %w(Loose Normal Hard)%></br>
-    <% else %>
-<!-- end of if logic -->
-      <%= patient_answer.text_field :answer %></br>
+<% if @survey_questions.present? %>
+  <div class="survey_wrapper">
+  <%= simple_form_for @patient do |patient| %>
+    <%= patient.input :questionnaire_complete, :as => :hidden, :input_html => { :value => true } %>
+    <%= patient.simple_fields_for :patient_answers do |patient_answer| %>
+      <div class="survey_question">
+        <%= patient_answer.object.survey_question.question %>
+      </div>
+  <!-- Start of if logic for question question_type -->
+      <% if patient_answer.object.survey_question.question_type == 'Yes / No' %>
+        <%= patient_answer.input :answer, as: :radio_buttons, collection: [["Yes", "Yes"], ["No", "No"]], label_method: :first, value_method: :last %></br>
+      <% elsif patient_answer.object.survey_question.question_type == 'Time' %>
+        <%= patient_answer.input :answer, as: :datetime_picker %></br> <!-- to be formatted -->
+      <% elsif patient_answer.object.survey_question.question_type == 'Choices' %>
+        <%= patient_answer.input :answer, as: :radio_buttons, collection: patient_answer.object.survey_question.survey_question_choices.pluck(:name), label_method: :first, value_method: :last %></br>
+      <% else %>
+  <!-- end of if logic -->
+        <%= patient_answer.text_field :answer %></br>
+      <% end %>
     <% end %>
+      <%= link_to 'Back', :back , class:"standard_back_button" %>
+    <button question_type="submit" class="standard_action_button">Submit</button>
   <% end %>
-    <%= link_to 'Back', :back , class:"standard_back_button" %>
-  <button question_type="submit" class="standard_action_button">Submit</button>
+  </div>
 <% end %>
-</div>

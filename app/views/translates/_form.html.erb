@@ -1,7 +1,15 @@
 <%= simple_form_for @translate do |f| %>
   <%= f.input :survey_question_id, as: :hidden, input_html: { value: @survey_question.id} %>
   <%= text_field_tag :question, @survey_question.question, disabled: true, class: "form-control"%>
+  <% if @survey_question.choices %>
+  	<div> Choices </div>
+  	<%= render partial: "choices", locals: {label_choice: "question_choices", disable: true} %>
+ 	<% end %>
   <%= f.input	:question, label: :Translate, as: :text %>
+  <% if @survey_question.choices %>
+  	<div> Translate Choices </div>
+  	<%= render partial: "choices", locals: {label_choice: "translate_question_choices", disable: false} %>
+ 	<% end %>
 	<%= f.input :language_id, collection: @translates %>
   <%= f.button :submit %>
 <% end %>

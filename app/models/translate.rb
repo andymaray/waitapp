@@ -1,4 +1,6 @@
 class Translate < ActiveRecord::Base
+	serialize :choices
+	
 	belongs_to :survey_question
 	belongs_to :language
 

@@ -36,20 +36,18 @@ $(function () {
     }
   });
 
-  $('form').on('click', '.remove_fields', function(event) {
-    $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('.fields').hide();
-    return event.preventDefault();
-  });
-
-  window.remove_fields = function(link) {
-    $(link).prev("input[type=hidden]").val("1");
-    $(link).closest(".fields").hide();
+  window.add_translate_fields = function(index) {
+    html = "<div class='fields'>"+
+      "<input name='translate_question_" + index + "_choices[]'"+
+      "id='translate_question_" + index + "_choices_' value=''"+
+      "class='form-control' type='text'></div>";
+    $("#translate_choices").append(html);
   }
 
-  window.add_fields = function(link, association, content) {
-    var new_id = new Date().getTime();
-    var regexp = new RegExp("new_" + association, "g")
-    $('#choices').append(content.replace(regexp, new_id));
+  window.add_fields = function(ev) {
+    html = "<div class='fields'>"+
+      "<input name='question_choices[]'' id='question_choices_' value=''"+
+      "class='form-control' type='text'></div>";
+    $("#choices").append(html);
   }
 });

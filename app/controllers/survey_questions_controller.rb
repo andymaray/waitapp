@@ -13,6 +13,7 @@ class SurveyQuestionsController < ApplicationController
   end
 
   def create
+    params[:survey_question][:choices] = params[:question_choices].reject(&:blank?) if params[:question_choices].present?
     @survey_question = SurveyQuestion.new(survey_question_params)
     if @survey_question.save
       redirect_to survey_questions_path, notice: "Survey Question created"
@@ -37,7 +38,15 @@ class SurveyQuestionsController < ApplicationController
   end
 
   def update
-    if @survey_question.update_attributes(survey_question_params)
+    params[:survey_question][:choices] = params[:question_choices].reject(&:blank?) if params[:question_choices].present?
+    params[:survey_question][:translates_attributes].each_with_index do |value, index| 
+      params[:survey_question][:translates_attributes]["#{index}"][:choices] = params["translate_question_#{index}_choices"].reject(&:blank?) if params[:question_choices].present?
+      puts 
+      puts 
+      puts params[:survey_question][:translates_attributes]["#{index}"][:choices]
+      puts 
+    end
+    if @survey_question.update_attributes(survey_question_params)    
       redirect_to survey_questions_path, notice: "Survey Question updated"
     else
       render :edit, alert: "Please try again"
@@ -52,7 +61,7 @@ class SurveyQuestionsController < ApplicationController
   private
 
     def survey_question_params
-      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id, :language_id, translates_attributes: [:question, :language_id, :id, :survey_question_id], survey_question_choices_attributes: [:name, :_destroy, :id])
+      params.require(:survey_question).permit(:question, :question_type, :mandatory, :presentation_id, :language_id, choices: [], translates_attributes: [:question, :language_id, :id, :survey_question_id, choices: []], survey_question_choices_attributes: [:name, :_destroy, :id])
     end
 
     def set_survey_question

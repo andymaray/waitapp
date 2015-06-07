@@ -1,0 +1,5 @@
+<% @survey_question.choices.each do |choice| %>
+  <div class="fields">
+    <%= text_field_tag "#{label_choice}[]", choice , disabled: disable, class: "form-control" %>
+  </div>
+<% end %>
