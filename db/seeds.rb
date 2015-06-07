@@ -54,9 +54,9 @@ User.create(name: "Maureen", email: "memeagi@gmail.com", password: "podmedics", 
 @question22 = SurveyQuestion.create(question: "How many children do you have?", presentation: @pregnant, language: @english)
 @question23 = SurveyQuestion.create(question: "Any previous miscarriages?", presentation: @pregnant, language: @english)
 
-@shoulder_pain = Presentation.create(name: 'Shoulder Pain', bodypart: @shoulder_and_arms, language: @english)
-@knee_pain = Presentation.create(name: 'Knee Pain', bodypart: @hips_and_legs, language: @english)
-@foot = Presentation.create(name: 'Painful toe', bodypart: @hips_and_legs, language: @english)
+@shoulder_pain = Presentation.create(name: 'Shoulder Pain', bodypart: @shoulder_and_arms)
+@knee_pain = Presentation.create(name: 'Knee Pain', bodypart: @hips_and_legs)
+@foot = Presentation.create(name: 'Painful toe', bodypart: @hips_and_legs)
 
 @question2 = SurveyQuestion.create(question: "Have you dislocated it?", presentation: @shoulder_pain, language: @english)
 @question3 = SurveyQuestion.create(question: "Snapped your ACL?", presentation: @knee_pain, language: @english)
