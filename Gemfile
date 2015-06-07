@@ -18,6 +18,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'haml', '~> 4.0.6'
+gem 'heroku'
 
 group :development, :test do
   gem 'byebug'
