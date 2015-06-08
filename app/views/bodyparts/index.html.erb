@@ -3,14 +3,14 @@
 </h1>
 <div class="home_link_list"><p><%= link_to 'New Body Part', new_bodypart_url %></p></div>
 <table class="table">
-  <th>
-    Name
-  </th>
-  
-  <% @bodyparts.each do |b| %>
+  <th>Name</th>
+  <th colspan="2">Actions</th>
+  <% @bodyparts.each do |bodypart| %>
     <tr>
+      <td><%= bodypart.name %></td>
+      <td><%= link_to 'Edit', edit_bodypart_path(bodypart), class:"btn btn-warning" %></td>
       <td>
-        <%= b.name %>
+        <%= link_to 'Delete', bodypart, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
       </td>
     </tr>
   <% end %>

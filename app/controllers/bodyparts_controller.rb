@@ -36,7 +36,7 @@ class BodypartsController < ApplicationController
 
   def update
     if @bodypart.update_attributes(bodypart_params)
-      redirect_to @bodypart, notice: "Bodypart updated"
+      redirect_to bodyparts_path, notice: "Bodypart updated"
     else
       render :edit, alert: "Please try again"
     end
@@ -44,7 +44,7 @@ class BodypartsController < ApplicationController
 
   def destroy
     @bodypart.destroy
-    redirect_to root_url, notice: "Bodypart deleted"
+    redirect_to bodyparts_path, notice: "Bodypart deleted"
   end
 
   private
