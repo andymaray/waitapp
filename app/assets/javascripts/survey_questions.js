@@ -17,7 +17,6 @@ $(document).on('ready page:load', function(){
     ev.preventDefault();
     target = $(this).attr("data-remote");
     title = $(this).attr("modal-title");
-    // instructions = $(this).attr("modal-instructions");
     $("#ModalDialog .modal-header h4").html("<div>" + title + "</div>");
     $("#ModalDialog .modal-body").load(target, function() {
       $(".spinner").hide(); // Hide the spinner

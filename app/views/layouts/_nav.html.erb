@@ -41,9 +41,6 @@
               </ul>
             </li>
           <% end %>
-          <li>
-            <%= link_to 'Log out', session_url(current_user), method: :delete %>
-          </li>
         <% else %>
           <li>
             <%= link_to 'Log in', login_url %>
@@ -75,6 +72,11 @@
             </li>
           </ul>
         </li>
+        <% end %>
+        <% if current_user %>
+          <li>
+            <%= link_to 'Log out', session_url(current_user), method: :delete %>
+          </li>
         <% end %>
       </ul>
     </div>

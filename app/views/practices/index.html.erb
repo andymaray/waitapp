@@ -6,20 +6,13 @@
   <th>
     Name
   </th>
-  <th>
-  </th>
-  <th>
-  </th>
+  <th colspan="2">Actions</th>
   <% @practices.each do |p| %>
     <tr>
+      <td><%= p.name %></td>
+      <td><%= link_to 'Edit', edit_practice_path(p), class:"btn btn-warning" %></td>
       <td>
-        <%= p.name %>
-      </td>
-      <td>
-        <%= link_to 'Edit', edit_practice_path(p), class:"table_button pull-right" %>
-      </td>
-      <td>
-        <%= link_to 'Delete', p, method: :delete, class:"table_button pull-right" %>
+        <%= link_to 'Delete', p, method: :delete, class:"btn btn-danger" %>
       </td>
     </tr>
   <% end %>

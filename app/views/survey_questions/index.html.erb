@@ -9,7 +9,7 @@
   <th>Question Type</th>
   <th>Mandatory?</th>
   <th>Translations</th>
-  <th>Actions</th>
+  <th colspan="3">Actions</th>
   <% @survey_questions.each do |q| %>
     <tr>
       <td><%= q.question %></td>
@@ -30,8 +30,12 @@
       </td>
       <td>
         <%= link_to "Translate", "#ModalDialog", :"data-remote" => new_translate_path(id: q.id, modal: true), :role => "button", :class => "btn btn-warning", :"data-target" => "#ModalDialog", :"modal-instructions" => "", :"modal-title" => "Translate" %>
-        <%= link_to 'Edit', edit_survey_question_url(q), class:"table_button pull-right" %>
-        <%= link_to 'Delete', q, method: :delete, class:"table_button pull-right" %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_survey_question_url(q), class:"btn btn-warning" %>
+      </td>
+      <td>
+        <%= link_to 'Delete', q, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
       </td>
     </tr>
   <% end %>

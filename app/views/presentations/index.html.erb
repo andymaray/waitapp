@@ -3,16 +3,9 @@
 </h1>
 </br>
 <table class="table">
-  <th>
-    Presentation
-  </th>
-  <th>
-    Bodypart
-  </th>
-  <th>
-  </th>
-  <th>
-  </th>
+  <th>Presentation</th>
+  <th>Bodypart</th>
+  <th colspan="2"><Actions/th>
   <% @presentations.each do |p| %>
     <tr>
       <td>
@@ -22,10 +15,10 @@
         <%= p.bodypart_name %>
       </td>
       <td>
-        <%= link_to 'Edit', edit_presentation_url(p), class:"table_button pull-right" %>
+        <%= link_to 'Edit', edit_presentation_url(p), class:"btn btn-warning" %>
       </td>
       <td>
-        <%= link_to 'Delete', p, method: :delete, class:"table_button pull-right" %>
+        <%= link_to 'Delete', p, method: :delete, class:"btn btn-danger" %>
       </td>
     </tr>
   <% end %>
