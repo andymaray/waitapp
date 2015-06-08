@@ -19,6 +19,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :patients
+   has_many :appointments
   belongs_to :practice
 
   before_save { self.email = email.downcase }

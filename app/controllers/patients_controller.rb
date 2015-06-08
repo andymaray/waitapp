@@ -1,11 +1,11 @@
 class PatientsController < ApplicationController
   before_filter :restrict_to_admins, only: [:index]
   def index
-    patients = find_patients
+    appointments = find_appointments
     if params[:search]
-      @patients = patients.search_by_date(params[:start_date], params[:end_date], params[:page])
+      @appointments = appointments.search_by_date(params[:start_date], params[:end_date], params[:page])
     else
-      @patients = patients.paginate(page: params[:page], per_page: 10).order("created_at desc")
+      @appointments = appointments.paginate(page: params[:page], per_page: 10).order("created_at desc")
     end
   end
 
@@ -80,12 +80,12 @@ class PatientsController < ApplicationController
       )
     end
 
-    def find_patients
+    def find_appointments
       if params[:clinician_id].present?
         user = User.find(params[:clinician_id])
-        user.patients
+        user.appointments
       else
-        Patient
+        Appointment
       end
     end
 

@@ -19,17 +19,20 @@
 <% end %>
 <table class="table">
   <th>Clinician</th>
-  <th>Token</th>
+  <th>Patient Name</th>
+  <th>Patient UserName</th>
   <th>Appointment Time</th>
   <th>Created At</th>
-  <% @patients.each do |patient| %>
+  <% @appointments.each do |appointment| %>
+    <% patient = appointment.patient %>
     <tr>
-      <td><%= patient.user.name %></td>
-      <td><%= link_to patient.token, patient_answer_path(patient.token)%></td>
-      <td><%= patient.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
-      <td><%= patient.created_at.strftime("%Y-%m-%d") %></td>
+      <td><%= appointment.user.name %></td>
+      <td><%= patient.full_name %></td>
+      <td><%= link_to patient.user_name, patient_answer_path(patient.user_name)%></td>
+      <td><%= appointment.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
+      <td><%= appointment.created_at.strftime("%Y-%m-%d") %></td>
     </tr>
   <% end %>
-  <%= will_paginate @patients %>
+  <%= will_paginate @appointments %>
 </table>
 
