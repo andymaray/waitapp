@@ -9,6 +9,19 @@ User.create(name: "Maureen", email: "memeagi@gmail.com", password: "podmedics", 
 @spanish = Language.create(name: "spanish")
 @turkish = Language.create(name: "turkish")
 
+
+Bodypart.create(name: 'Head and Neck')
+Bodypart.create(name: 'Chest')
+Bodypart.create(name: 'Abdomen')
+Bodypart.create(name: 'Pelvis')
+Bodypart.create(name: 'Shoulder and Arms')
+Bodypart.create(name: 'Hips and Legs')
+Bodypart.create(name: 'Back')
+Bodypart.create(name: 'Head and Neck')
+Bodypart.create(name: 'Shoulders and Arms')
+Bodypart.create(name: 'Buttocks')
+Bodypart.create(name: 'Upper and Lower Legs')
+
 SurveyQuestion.create(question: "What do you think is happening to you / going on?", mandatory: true, language: @english)
 SurveyQuestion.create(question: "What are you most worried about?", mandatory: true, language: @english)
 SurveyQuestion.create(question: "What were you hoping to gain from this appointment?", mandatory: true, language: @english)
