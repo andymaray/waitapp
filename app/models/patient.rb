@@ -20,17 +20,25 @@ class Patient < ActiveRecord::Base
   belongs_to :presentation
   has_many :patient_answers
   has_many :survey_questions, through: :patient_answers
+  has_many :appointments
 
-  validates_presence_of :user_id, :appointment_time
+  validates_presence_of :first_name, :last_name, :gp_code
 
   accepts_nested_attributes_for :patient_answers, update_only: true
+  accepts_nested_attributes_for :appointments, allow_destroy: true
 
-
-  delegate :name, to: :user, prefix: true
+  # delegate :name, to: :user, prefix: true
   delegate :name, to: :bodypart, prefix: true
   delegate :name, to: :presentation, prefix: true
 
   before_update :stringify_array_answers, only: :update
+
+  after_create :assign_username
+
+  def assign_username
+    self.user_name = self.first_name + "-" + self.id.to_s
+    self.save!
+  end
 
   private
     def stringify_array_answers

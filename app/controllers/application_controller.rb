@@ -11,7 +11,14 @@ class ApplicationController < ActionController::Base
   end
 
   def remember_patient(patient)
+    puts "remember_patient"*200
+    puts patient.id.inspect
+    puts 
     session[:patient_id] = patient.id
+    puts 
+    puts session[:patient_id].inspect
+    puts "-----------------"
+    puts
   end
 
   def formatted_time(patient)
@@ -26,8 +33,13 @@ class ApplicationController < ActionController::Base
     end
 
     def authorise
-      unless current_permission.allow?(params[:controller], params[:action])
-        redirect_to login_url, alert: 'Not authorised.'
+      puts 
+      puts "authorize"*200
+      puts session[:patient_id].inspect
+      puts 
+      puts
+      unless current_permission.allow?(params[:controller], params[:action], current_patient)
+        redirect_to root_url, alert: 'You are not authorized'
       end
     end
 

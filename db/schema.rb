@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605154351) do
+ActiveRecord::Schema.define(version: 20150608090106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "appointment_time"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "bodyparts", force: :cascade do |t|
     t.string   "name"
@@ -46,6 +54,11 @@ ActiveRecord::Schema.define(version: 20150605154351) do
     t.boolean  "form_reached"
     t.datetime "appointment_time"
     t.boolean  "questionnaire_complete", default: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "user_name"
+    t.string   "phone_number"
+    t.string   "gp_code"
   end
 
   add_index "patients", ["token"], name: "index_patients_on_token", unique: true, using: :btree

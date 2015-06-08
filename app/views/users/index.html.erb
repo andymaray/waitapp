@@ -66,12 +66,9 @@
     </div>
   <% else %>
     <p class="text-center">If you're a doctor visiting this page, please <%= link_to 'login', login_path %>.</p>
-    <p class="text-center">If you're a patient, please enter your token below - or your unique URL into the browser. Contact your practice if you don't have access to this.</p>
+    <p class="text-center">If you're a patient, please fill up this form. Contact your practice if you don't have access to this.</p>
     <div>
-      <%= simple_form_for :bodypart, { url: bodyparts_path } do |f| %>
-        <%= f.input :token %>
-        <button type="submit" class="home_action_button">Go</button>
-    <% end %>
+      <%= render "patients/form"%>
     </div>
   <% end %>
 </div>

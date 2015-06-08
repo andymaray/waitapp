@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       User.where(practice: current_user.practice)
     end
     # The line below needs to be relocated to the eventual patient home page - presumeably just a static
-    session[:patient_id] = nil
+    @patient = Patient.new
+    @local_clinicians = User.where(clinician: true)
   end
 
   def new

@@ -13,6 +13,7 @@ class PatientAnswersController < ApplicationController
       assign_patient_or_redirect
       @patient_answers = PatientAnswer.where(patient_id: @patient.id)
       @survey_questions = SurveyQuestion.all
+      session[:patient_id] = nil
     else
       redirect_to root_url, notice: "For security purposes, you may only access submitted information once.
                                     \nPlease contact your practice if you have any issues.
@@ -23,7 +24,7 @@ class PatientAnswersController < ApplicationController
   private
 
     def assign_patient_or_redirect
-      unless(@patient = Patient.find_by_token(params[:id]))
+      unless(@patient = Patient.find_by(user_name: params[:id]))
         redirect_to root_url, alert: "Invalid token."
      end
     end
