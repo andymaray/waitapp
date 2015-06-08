@@ -20,7 +20,7 @@ class BodypartsController < ApplicationController
     else
       @bodypart = Bodypart.new(bodypart_params)
       if @bodypart.save
-        redirect_to root_url, notice: "Bodypart created"
+        redirect_to bodyparts_path, notice: "Bodypart created"
       else
         render :new, notice: "Please try again"
       end
