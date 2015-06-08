@@ -1,16 +1,18 @@
 <%= simple_form_for @survey_question do |f| %>
   <%= f.input :question %>
-  <%= f.label :question_type %>
-  <%= f.select :question_type, options_for_select(SurveyQuestion::QUESTION_TYPES, @survey_question.question_type), {}, {class: "select form-control #{@survey_question.new_record? ? 'survey_question_type' : '' }"}  %>
-  <div id="<%= @survey_question.new_record? ? 'add_survey_question_choices' : @survey_question.question_type == 'Choices' ? '' : 'survey_question_choices_hide'  %>">
-    <%= link_to "Add Choice", "javascript:void(0)", onclick: "add_fields()" %>
-  </div>
-  <div id="choices">
-    <%  @survey_question.choices && @survey_question.choices.each do |choice| %>
-      <div class="fields">
-        <%= text_field_tag 'question_choices[]', choice , class: "form-control" %>
-      </div>
-    <% end %>
+  <div class="form-group">
+    <%= f.label :question_type %>
+    <%= f.select :question_type, options_for_select(SurveyQuestion::QUESTION_TYPES, @survey_question.question_type), {}, {class: "select form-control #{@survey_question.new_record? ? 'survey_question_type' : '' }"}  %>
+    <div id="<%= @survey_question.new_record? ? 'add_survey_question_choices' : @survey_question.question_type == 'Choices' ? '' : 'survey_question_choices_hide'  %>">
+      <%= link_to "Add Choice", "javascript:void(0)", onclick: "add_fields()" %>
+    </div>
+    <div id="choices">
+      <%  @survey_question.choices && @survey_question.choices.each do |choice| %>
+        <div class="fields">
+          <%= text_field_tag 'question_choices[]', choice , class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 	<%= f.input :language_id, collection: Language.all %>
   <%= f.input :mandatory %>

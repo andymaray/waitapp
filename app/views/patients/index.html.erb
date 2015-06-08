@@ -2,12 +2,18 @@
   Patients
 </h1>
 <%= form_tag patients_path, method: :get, enforce_utf8: false do %>
-  <label>Search by date</label>
-  <div class="input-append date datepicker" data-date="<%= params[:start_date] %>" data-date-format="yyyy-mm-dd">
+  
+  <div class="col-xs-12" style="padding-left:0; padding-right:0;">
+    
+      <label>Search by date</label>
+    
+  </div>
+  
+  <div class="input-append date datepicker col-sm-4" data-date="<%= params[:start_date] %>" data-date-format="yyyy-mm-dd">
     <%= text_field_tag :start_date, params[:start_date], readonly: true %>
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
-  <div class="input-append date datepicker" data-date="<%= params[:end_date] %>" data-date-format="yyyy-mm-dd">
+  <div class="input-append date datepicker col-sm-4" data-date="<%= params[:end_date] %>" data-date-format="yyyy-mm-dd">
     <%= text_field_tag :end_date, params[:end_date], readonly: true %>
     <span class="add-on"><i class="icon-th"></i></span>
   </div>

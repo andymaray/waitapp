@@ -219,6 +219,15 @@ button.standard_action_button:hover, a.standard_action_button:hover, button.home
   color: #FFF;
   text-decoration: none;
 }
+
+.date.datepicker{
+  padding: 0;
+
+  input[type="text"]{
+    height: 35px;
+  }
+}
+
 input.datepicker {
   width:100%;
   margin-bottom: 0px;
@@ -265,6 +274,14 @@ h1.new_patient_heading {
 }
 .survey_wrapper {
   margin-bottom: 70px;
+}
+
+#add_survey_question_choices{
+  margin: 7px 0 0;
+}
+
+.fields{
+  margin-bottom: 6px;
 }
 
 p.text-center.patient_show_subtitle {
@@ -603,6 +620,9 @@ li.dropdown a .caret {
   margin-left: 15px;
   margin-right: 4px;
 }
+.navbar-nav > li.dropdown:hover > .dropdown-menu {
+  display:block;
+}
 .navbar-nav > li > .dropdown-menu {
   margin-top: -3px;
   margin-left: 12px;
@@ -660,6 +680,10 @@ input.dummy_textfield {
 
 @media screen and (max-width: 769px) {
 
+  ul.nav.navbar-nav{
+    width: 100%; 
+  }
+
   ul.nav.navbar-nav.pull-right li a {
     background-color: transparent;
     color: #FFF;
@@ -674,7 +698,7 @@ input.dummy_textfield {
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 800;
-    float: right;
+    
   }
   ul.nav.navbar-nav.pull-right {
     margin-right: 0px;
@@ -683,7 +707,7 @@ input.dummy_textfield {
   ul.nav.navbar-nav.pull-right li a.new_header_button {
     background-color: transparent;
     color: #FFFFFF;
-    text-align: right;
+    text-align: left;
   }
   ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
     color: #AD8421;
