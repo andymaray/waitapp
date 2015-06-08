@@ -58,14 +58,6 @@
       </div>
       <% end %>
 
-    <div class="home_token_form_wrapper">
-      <h2 class="sub_title">Find patient by token</h2>
-      <%= simple_form_for :patient_answer, { url: patient_answers_path } do |f| %>
-        <%= f.input :doctors_token, label: 'Token' %>
-        <button type="submit" class="home_action_button">Find</button>
-
-    <% end %>
-    </div>
   <% else %>
     <p class="text-center">If you're a doctor visiting this page, please <%= link_to 'login', login_path %>.</p>
     <p class="text-center">If you're a patient, please fill up this form. Contact your practice if you don't have access to this.</p>
