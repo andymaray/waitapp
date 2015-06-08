@@ -5,7 +5,7 @@ class SurveyQuestionsController < ApplicationController
   before_filter :ensure_accessible_only_once, only: :show
 
   def index
-    @survey_questions = SurveyQuestion.all_with_presentations.paginate(page: params[:page], per_page: 4)
+    @survey_questions = SurveyQuestion.all_with_presentations.paginate(page: params[:page], per_page: 15)
   end
 
   def new
