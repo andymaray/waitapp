@@ -41,10 +41,6 @@ class SurveyQuestionsController < ApplicationController
     params[:survey_question][:choices] = params[:question_choices].reject(&:blank?) if params[:question_choices].present?
     params[:survey_question][:translates_attributes].each_with_index do |value, index| 
       params[:survey_question][:translates_attributes]["#{index}"][:choices] = params["translate_question_#{index}_choices"].reject(&:blank?) if params[:question_choices].present?
-      puts 
-      puts 
-      puts params[:survey_question][:translates_attributes]["#{index}"][:choices]
-      puts 
     end
     if @survey_question.update_attributes(survey_question_params)    
       redirect_to survey_questions_path, notice: "Survey Question updated"
@@ -76,8 +72,8 @@ class SurveyQuestionsController < ApplicationController
     end
 
     def assign_patient_or_redirect
-      unless(@patient = Patient.find_by_token(params[:id]))
-        redirect_to root_url, alert: "Invalid token."
+      unless current_patient
+        redirect_to root_url, alert: "You are unauthorized to access this page"
       end
     end
 end

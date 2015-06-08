@@ -13,7 +13,7 @@
       <% elsif patient_answer.object.survey_question.question_type == 'Time' %>
         <%= patient_answer.input :answer, as: :datetime_picker %></br> <!-- to be formatted -->
       <% elsif patient_answer.object.survey_question.question_type == 'Choices' %>
-        <%= patient_answer.input :answer, as: :radio_buttons, collection: patient_answer.object.survey_question.survey_question_choices.pluck(:name), label_method: :first, value_method: :last %></br>
+        <%= patient_answer.input :answer, as: :radio_buttons, collection: patient_answer.object.survey_question.choices, label_method: :first, value_method: :last %></br>
       <% else %>
   <!-- end of if logic -->
         <%= patient_answer.text_field :answer %></br>

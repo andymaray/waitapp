@@ -1,5 +1,5 @@
 class BodypartsController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_body_part, only: [:edit, :update, :destroy]
   before_filter :ensure_accessible_only_once, only: :show
 
   def index
@@ -28,8 +28,7 @@ class BodypartsController < ApplicationController
   end
 
   def show
-    assign_patient_or_redirect
-    remember_patient(@patient)
+    @patient = Patient.find_by(user_name: params[:id])
   end
 
   def edit
@@ -62,14 +61,14 @@ class BodypartsController < ApplicationController
       params.require(:bodypart).permit(:name, :token)
     end
 
-    def set_user
+    def set_body_part
       @bodypart = Bodypart.find(params[:id])
     end
 
     def ensure_accessible_only_once
-      @patient = Patient.find_by_token(params[:id]) || current_patient
+      @patient =  current_patient
       if @patient && @patient.questionnaire_complete?
-          redirect_to root_url, notice: "For security reasons, you can only access token data once. Please contact your practice if you need anything further."
+          redirect_to root_url, notice: "For security reasons, you can only access questionair data once. Please contact your practice if you need anything further."
       end
     end
 

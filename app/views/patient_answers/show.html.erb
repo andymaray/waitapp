@@ -1,5 +1,5 @@
 <h1 class="text-center">
-  Appointment for <%= formatted_time(@patient) %>
+  Appointment for <%= formatted_time(@patient.appointments.first) %>
 </h1>
 <% if @patient.bodypart && @patient.presentation %>
 

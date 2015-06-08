@@ -1,0 +1,12 @@
+<%= simple_form_for @patient do |f| %>
+	
+	<%= f.input :gp_code %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :phone_number %>
+	<%= f.fields_for :appointments, @patient.appointments.present? ? @patient.appointments : @patient.appointments.new do |appointment| %>
+		<%= appointment.input :appointment_time, as: :datetime_picker %>
+		<%= appointment.input :user_id, collection: @local_clinicians, label: 'Clinician' %>
+	<% end %>
+  <%= f.submit 'Continue'%>
+<% end %>

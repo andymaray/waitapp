@@ -1,12 +1,1 @@
-<h1 class="new_patient_heading">Token generator</h1>
-
-<p>Select the patient's appointment time and clinician. You will be sent a unique token to pass on to the patient.</p>
-
-<%= simple_form_for @patient do |f| %>
-
-  <%= f.input :appointment_time, as: :datetime_picker %>
-
-  <%= f.association :user, collection: @local_clinicians, label: 'Clinician' %>
-  <button type="submit" class="standard_action_button">Create Token</button>
-
-<% end %>
+<%= render 'form' %>
