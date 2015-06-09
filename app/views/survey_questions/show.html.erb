@@ -17,7 +17,7 @@
         <%= patient_answer.input :answer, as: :radio_buttons, collection: patient_answer.object.survey_question.choices %></br>
       <% else %>
   <!-- end of if logic -->
-        <%= patient_answer.text_field :answer %></br>
+        <%= patient_answer.text_area :answer, :maxlength => 120, cols: 40, rows: 3 %></br>
       <% end %>
     <% end %>
       <% if current_patient %>
