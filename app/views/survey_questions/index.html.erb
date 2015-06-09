@@ -2,7 +2,13 @@
   Manage Questions
 </h1>
 </br>
-
+<label>Filter By</label>
+<%= form_tag survey_questions_path, method: :get, enforce_utf8: false do |f|%>
+  <%= select_tag :presentation_filter, options_from_collection_for_select(@presentations, "id", "name", params[:presentation_filter]), {include_blank: true, class: "form-control"} %>
+  <%= hidden_field_tag :search, true %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary pull-right top-margin-button"%>
+<% end %>
+<%= link_to "See All", survey_questions_path, class: "btn btn-warning top-margin-button" if params[:presentation_filter].present? %>
 <table class="table">
   <th>Question</th>
   <th>Presentation</th>
@@ -10,33 +16,39 @@
   <th>Mandatory?</th>
   <th>Translations</th>
   <th colspan="3">Actions</th>
-  <% @survey_questions.each do |q| %>
+  <% if @survey_questions.present? %>
+    <% @survey_questions.each do |q| %>
+      <tr>
+        <td><%= q.question %></td>
+        <td>
+          <% if q.presentation %>
+            <%= q.presentation_name %>
+          <% else %>
+            All
+          <% end %>
+        </td>
+        <td><%= q.question_type %></td>
+        <td><%= q.mandatory %></td>
+        <td>
+          <%= q.language.name%>
+          <% q.translates.each do |translate| %>
+            <%= ", " + translate.language.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Translate", "#ModalDialog", :"data-remote" => new_translate_path(id: q.id, modal: true), :role => "button", :class => "btn btn-warning", :"data-target" => "#ModalDialog", :"modal-instructions" => "", :"modal-title" => "Translate" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_survey_question_url(q), class:"btn btn-warning" %>
+        </td>
+        <td>
+          <%= link_to 'Delete', q, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  <% else %>
     <tr>
-      <td><%= q.question %></td>
-      <td>
-        <% if q.presentation %>
-          <%= q.presentation_name %>
-        <% else %>
-          All
-        <% end %>
-      </td>
-      <td><%= q.question_type %></td>
-      <td><%= q.mandatory %></td>
-      <td>
-        <%= q.language.name%>
-        <% q.translates.each do |translate| %>
-          <%= ", " + translate.language.name %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to "Translate", "#ModalDialog", :"data-remote" => new_translate_path(id: q.id, modal: true), :role => "button", :class => "btn btn-warning", :"data-target" => "#ModalDialog", :"modal-instructions" => "", :"modal-title" => "Translate" %>
-      </td>
-      <td>
-        <%= link_to 'Edit', edit_survey_question_url(q), class:"btn btn-warning" %>
-      </td>
-      <td>
-        <%= link_to 'Delete', q, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
-      </td>
+      <td> No Question Present </td>
     </tr>
   <% end %>
 </table>

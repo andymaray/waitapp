@@ -31,7 +31,11 @@ class SurveyQuestion < ActiveRecord::Base
 
   QUESTION_TYPES = ['Text', 'Yes / No', 'Time', 'Choices']
 
-  def self.all_with_presentations
-    includes(:presentation).order(:presentation_id)
+  def self.all_with_presentations(filter=nil)
+    if filter.present?
+      where(presentation_id: filter).order("created_at DESC")
+    else
+      includes(:presentation).order(:presentation_id)
+    end
   end
 end

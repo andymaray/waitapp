@@ -5,7 +5,12 @@ class SurveyQuestionsController < ApplicationController
   before_filter :ensure_accessible_only_once, only: :show
 
   def index
-    @survey_questions = SurveyQuestion.all_with_presentations.paginate(page: params[:page], per_page: 15)
+    if params[:search] && params[:presentation_filter]
+      @survey_questions = SurveyQuestion.all_with_presentations(params[:presentation_filter]).paginate(page: params[:page], per_page: 15)
+    else
+      @survey_questions = SurveyQuestion.all_with_presentations.paginate(page: params[:page], per_page: 15)
+    end
+    @presentations = Presentation.all
   end
 
   def new
@@ -39,8 +44,10 @@ class SurveyQuestionsController < ApplicationController
 
   def update
     params[:survey_question][:choices] = params[:question_choices].reject(&:blank?) if params[:question_choices].present?
-    params[:survey_question][:translates_attributes].each_with_index do |value, index| 
-      params[:survey_question][:translates_attributes]["#{index}"][:choices] = params["translate_question_#{index}_choices"].reject(&:blank?) if params[:question_choices].present?
+    if params[:survey_question][:translates_attributes].present?
+      params[:survey_question][:translates_attributes].each_with_index do |value, index| 
+        params[:survey_question][:translates_attributes]["#{index}"][:choices] = params["translate_question_#{index}_choices"].reject(&:blank?) if params[:question_choices].present?
+      end
     end
     if @survey_question.update_attributes(survey_question_params)    
       redirect_to survey_questions_path, notice: "Survey Question updated"
