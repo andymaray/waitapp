@@ -29,7 +29,7 @@ class SurveyQuestionsController < ApplicationController
 
   def show
       @survey_questions = SurveyQuestion.where(presentation_id: @patient.presentation_id)
-      @mandatory_questions = SurveyQuestion.where(mandatory: true)
+      @mandatory_questions = SurveyQuestion.where("mandatory =? and presentation_id IS NULL", true)
       @survey_questions << @mandatory_questions
       if @patient.survey_questions.empty?
         @patient.survey_questions << @survey_questions
