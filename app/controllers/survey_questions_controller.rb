@@ -31,10 +31,11 @@ class SurveyQuestionsController < ApplicationController
       @survey_questions = SurveyQuestion.where(presentation_id: @patient.presentation_id)
       @mandatory_questions = SurveyQuestion.where("mandatory =? and presentation_id IS NULL", true)
       @survey_questions << @mandatory_questions
-      if @patient.survey_questions.empty?
-        @patient.survey_questions << @survey_questions
-        @patient.save
+      if @patient.survey_questions.present?
+        @patient.survey_questions.destroy_all
       end
+      @patient.survey_questions << @survey_questions
+      @patient.save
       @patient_answers = PatientAnswer.where(patient_id: @patient.id)
   end
 
