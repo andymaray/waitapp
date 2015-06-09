@@ -20,8 +20,13 @@
         <%= patient_answer.text_field :answer %></br>
       <% end %>
     <% end %>
-      <%= link_to 'Back', :back , class:"standard_back_button" %>
-    <button question_type="submit" class="standard_action_button">Submit</button>
+      <% if current_patient %>
+        <%= hidden_field_tag :patient_answer_page, true %>
+        <%= link_to 'Back', presentation_url(params[:id]), class:"standard_back_button"%>
+      <% else %>
+        <%= link_to 'Back', :back , class:"standard_back_button"%>
+      <% end %>
+    <button question_type="submit" data-confirm ='Are you sure to submit?', class="standard_action_button">Submit</button>
   <% end %>
   </div>
 <% end %>

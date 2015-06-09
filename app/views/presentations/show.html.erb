@@ -1,6 +1,7 @@
 <%= simple_form_for @patient do |f| %>
+	<%= hidden_field_tag :survey_question_page, true %>
   <%= f.association :presentation, collection: @presentations %>
-  <%= link_to 'Back', :back , class:"standard_back_button" %>
+  <%= link_to 'Back', bodypart_path(params[:id]) , class:"standard_back_button" %>
   <button type="submit" class="standard_action_button">Next</button>
 <% end %>
 

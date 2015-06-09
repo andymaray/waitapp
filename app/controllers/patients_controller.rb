@@ -29,9 +29,9 @@ class PatientsController < ApplicationController
     @patient = current_patient
     begin
       if @patient.update_attributes(patient_params)
-        if @patient.form_reached
+        if params[:patient_answer_page]
           redirect_to patient_answer_path(@patient.user_name), notice: "Thank you for submitting your form. See you at the appointment"
-        elsif @patient.presentation_id
+        elsif params[:survey_question_page]
           redirect_to survey_question_url(@patient.user_name), notice: "Here are your questions"
         elsif @patient.bodypart_id
           redirect_to presentation_url(@patient.user_name), notice: "Now specify your problem"

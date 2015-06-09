@@ -32,7 +32,6 @@ class SurveyQuestionsController < ApplicationController
       @mandatory_questions = SurveyQuestion.where(mandatory: true)
       @survey_questions << @mandatory_questions
       if @patient.survey_questions.empty?
-        @patient.form_reached = true
         @patient.survey_questions << @survey_questions
         @patient.save
       end
