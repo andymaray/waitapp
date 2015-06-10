@@ -30,8 +30,8 @@
         <td><%= q.question_type %></td>
         <td><%= q.mandatory %></td>
         <td>
-          <%= q.language.name%>
-          <% q.translates.each do |translate| %>
+          <%= q.language.name if q.language%>
+          <% q.translates && q.translates.each do |translate| %>
             <%= ", " + translate.language.name %>
           <% end %>
         </td>

@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
   before_filter :restrict_to_admins, only: [:index]
   def index
     appointments = find_appointments
-    if params[:search]
+    if params[:search].present? && params[:start_date].present? && params[:end_date].present?
       @appointments = appointments.search_by_date(params[:start_date], params[:end_date], params[:page])
     else
       @appointments = appointments.paginate(page: params[:page], per_page: 10).order("created_at desc")
