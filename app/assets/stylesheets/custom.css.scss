@@ -223,6 +223,8 @@ button.standard_action_button:hover, a.standard_action_button:hover, button.home
 .date.datepicker{
   padding: 0;
 
+  margin-right: 15px;
+
   input[type="text"]{
     height: 35px;
   }
@@ -679,6 +681,30 @@ input.dummy_textfield {
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 4px;
+}
+
+.search-presentation{
+  float: left;
+  width: 80%;
+  margin-bottom: 20px;
+
+  .btn{
+    float: left;
+  }
+}
+
+.new-question-btn-wrap{
+   float: right;
+   margin-top: 23px;
+
+   p{
+    margin: 0;
+   }
+}
+
+.no-padding{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 
