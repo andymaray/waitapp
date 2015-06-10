@@ -12,7 +12,7 @@
       <td><%= bodypart.name %></td>
       <td><%= link_to 'Edit', edit_bodypart_path(bodypart), class:"btn btn-warning" %></td>
       <td>
-        <%= link_to 'Delete', bodypart, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+        <%= link_to 'Delete', bodypart, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
       </td>
     </tr>
   <% end %>
