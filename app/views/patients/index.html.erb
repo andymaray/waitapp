@@ -21,8 +21,9 @@
   <% if params[:clinician_id].present? %>
     <%= hidden_field_tag :clinician_id, params[:clinician_id] %>
   <% end %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary", id: "search_patients" %>
 <% end %>
+<div class="error col-sm-12"></div>
 <table class="table">
   <th>Clinician</th>
   <th>Patient Name</th>

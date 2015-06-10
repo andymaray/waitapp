@@ -17,8 +17,8 @@
 	<%= f.input :language_id, collection: Language.all %>
   <%= f.input :mandatory %>
   <%= f.association :presentation %>
-  <%= label_tag "Translate Question" if @survey_question.translates%>
   <% unless @survey_question.new_record? %>
+    <%= label_tag "Translate Question" if @survey_question.translates.present? %>
     <% index = 0 %>
 	  <%= f.fields_for :translates do |translate_form| %>
 	  <%= translate_form.input :question, label: "Translate in #{translate_form.object.language.name}" %>

@@ -2,11 +2,12 @@
   Manage Questions
 </h1>
 </br>
+<div class="error col-sm-12"></div>
 <label>Filter By</label>
 <%= form_tag survey_questions_path, method: :get, enforce_utf8: false do |f|%>
   <%= select_tag :presentation_filter, options_from_collection_for_select(@presentations, "id", "name", params[:presentation_filter]), {include_blank: true, class: "form-control"} %>
   <%= hidden_field_tag :search, true %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-primary pull-right top-margin-button"%>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary pull-right top-margin-button", id: "search_question"%>
 <% end %>
 <%= link_to "See All", survey_questions_path, class: "btn btn-warning top-margin-button" if params[:presentation_filter].present? %>
 <table class="table">
