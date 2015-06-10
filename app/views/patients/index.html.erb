@@ -28,15 +28,17 @@
   <th>Created At</th>
   <th>Action</th>
   <% @appointments.each do |appointment| %>
-    <% patient = appointment.patient %>
-    <tr>
-      <td><%= appointment.user.name %></td>
-      <td><%= patient.full_name %></td>
-      <td><%= link_to patient.user_name, patient_answer_path(patient.user_name)%></td>
-      <td><%= appointment.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
-      <td><%= appointment.created_at.strftime("%Y-%m-%d") %></td>
-      <td><%= link_to 'Delete', appointment.patient , method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
-    </tr>
+    <% if appointment.patient.present? %>
+      <% patient = appointment.patient %>
+      <tr>
+        <td><%= appointment.user.name %></td>
+        <td><%= patient.full_name %></td>
+        <td><%= link_to patient.user_name, patient_answer_path(patient.user_name)%></td>
+        <td><%= appointment.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
+        <td><%= appointment.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= link_to 'Delete', appointment.patient , method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
   <% end %>
   <%= will_paginate @appointments %>
 </table>
