@@ -4,7 +4,6 @@
 </br>
 
 <div class="search-presentation">
-  <div class="error col-sm-12"></div>
   <label>Filter By</label>
 <%= form_tag survey_questions_path, method: :get, enforce_utf8: false do |f|%>
   <div class="col-sm-8 no-padding">    
@@ -13,18 +12,24 @@
 
   <div class="col-sm-4">
   <%= hidden_field_tag :search, true %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-primary"%>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary", id: "search_question" %>
   </div>
 <% end %>
+<div class="error col-sm-12"></div>
 </div>
+<% if params[:presentation_filter].present? %>
+  <div class="question-see-all">
+    <p>
+      <%= link_to "See All", survey_questions_path, class: "btn btn-warning" %>
+    </p>
+  </div>
+<% end %>
 
 <div class="home_link_list new-question-btn-wrap">
   <p>
     <%= link_to 'New Question', new_survey_question_url %>
   </p>
 </div>
-
-<%= link_to "See All", survey_questions_path, class: "btn btn-warning top-margin-button" if params[:presentation_filter].present? %>
 <table class="table">
   <th>Question</th>
   <th>Presentation</th>
@@ -58,7 +63,7 @@
           <%= link_to 'Edit', edit_survey_question_url(q), class:"btn btn-warning" %>
         </td>
         <td>
-          <%= link_to 'Delete', q, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+          <%= link_to 'Delete', q, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
         </td>
       </tr>
     <% end %>

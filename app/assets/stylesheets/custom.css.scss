@@ -260,6 +260,9 @@ input.timepicker {
 h1.new_patient_heading {
   margin-bottom: 30px;
 }
+#new_patient .datetimepicker button{
+  height: 50px;
+}
 .survey_question {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -696,12 +699,18 @@ input.dummy_textfield {
 }
 
 .new-question-btn-wrap{
-   float: right;
-   margin-top: 23px;
+  clear: left;
+  float: left;
+  margin-bottom: 20px;
 
-   p{
+  p{
     margin: 0;
-   }
+  }
+}
+
+.question-see-all{
+  float: right;
+  margin-top: 23px;
 }
 
 .no-padding{

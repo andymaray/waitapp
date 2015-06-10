@@ -34,7 +34,6 @@ $(document).on('ready page:load', function(){
     }
   });
 
-
   $("body").on("click", "#search_question", function(ev){
     $(".error").html("");
     if(!$("#presentation_filter").val()){

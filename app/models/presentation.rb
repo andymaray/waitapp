@@ -17,8 +17,6 @@ class Presentation < ActiveRecord::Base
 
   validates :name, presence: true
 
-  delegate :name, to: :bodypart, prefix: true
-
   def self.all_with_bodyparts
     includes(:bodypart).order(:bodypart_id)
   end

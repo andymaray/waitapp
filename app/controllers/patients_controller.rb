@@ -62,6 +62,12 @@ class PatientsController < ApplicationController
     @patients = Patient.todays_tokens
   end
 
+  def destroy
+    @patient = Patient.find(params[:id])
+    @patient.destroy
+    redirect_to :back, notice: "Patient deleted"
+  end
+
   private
     def patient_params
       params.require(:patient).permit(

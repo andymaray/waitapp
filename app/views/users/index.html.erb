@@ -39,20 +39,12 @@
           </tr>
           <% @users.each do |user| %>
             <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.practice_name %></td>
+              <td><%= link_to 'Edit', edit_user_path(user), class:"btn btn-warning" %></td>
               <td>
-                <%= user.name %>
-              </td>
-              <td>
-                <%= user.email %>
-              </td>
-              <td>
-                <%= user.practice_name %>
-              </td>
-              <td>
-                <%= link_to 'Delete', user, method: :delete, class:"btn btn-warning" %>
-              </td>
-              <td>
-                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-danger" %>
+                <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
               </td>
             </tr>
           <% end %>

@@ -20,7 +20,7 @@ class Patient < ActiveRecord::Base
   belongs_to :presentation
   has_many :patient_answers
   has_many :survey_questions, through: :patient_answers
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
 
   validates_presence_of :first_name, :last_name, :gp_code
 
