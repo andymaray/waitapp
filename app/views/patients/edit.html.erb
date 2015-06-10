@@ -1,5 +1,9 @@
+<div class="col-sm-8 col-sm-offset-2">
+
 <%= simple_form_for @patient do |f| %>
   <%= f.association :presentation, collection: @presentations %>
   <%= f.submit %>
 <% end %>
+
+</div>
 

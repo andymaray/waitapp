@@ -2,13 +2,28 @@
   Manage Questions
 </h1>
 </br>
-<div class="error col-sm-12"></div>
-<label>Filter By</label>
+
+<div class="search-presentation">
+  <div class="error col-sm-12"></div>
+  <label>Filter By</label>
 <%= form_tag survey_questions_path, method: :get, enforce_utf8: false do |f|%>
-  <%= select_tag :presentation_filter, options_from_collection_for_select(@presentations, "id", "name", params[:presentation_filter]), {include_blank: true, class: "form-control"} %>
+  <div class="col-sm-8 no-padding">    
+  <%= select_tag :presentation_filter, options_from_collection_for_select(@presentations, "id", "name", params[:presentation_filter]), {include_blank: true, class: "form-control"} %>    
+  </div>
+
+  <div class="col-sm-4">
   <%= hidden_field_tag :search, true %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-primary pull-right top-margin-button", id: "search_question"%>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary"%>
+  </div>
 <% end %>
+</div>
+
+<div class="home_link_list new-question-btn-wrap">
+  <p>
+    <%= link_to 'New Question', new_survey_question_url %>
+  </p>
+</div>
+
 <%= link_to "See All", survey_questions_path, class: "btn btn-warning top-margin-button" if params[:presentation_filter].present? %>
 <table class="table">
   <th>Question</th>
@@ -55,8 +70,4 @@
 </table>
 <%= will_paginate @patients %>
 
-<div class="home_link_list">
-  <p>
-    <%= link_to 'New Question', new_survey_question_url %>
-  </p>
-</div>
+
