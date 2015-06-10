@@ -5,13 +5,11 @@
   <div class="col-xs-12" style="padding-left:0; padding-right:0;">
       <label>Search by date</label>
   </div>
-  <div class="input-append date datepicker col-sm-3" data-date="<%= params[:start_date] %>" data-date-format="yyyy-mm-dd">
-    <%= text_field_tag :start_date, params[:start_date], readonly: true, class: "form-control" %>
-    <span class="add-on"><i class="icon-th"></i></span>
+  <div class="col-sm-3">
+    <%= text_field_tag :start_date, params[:start_date], readonly: true, class: "form-control datepicker", :"data-date-format" => "yyyy-mm-dd" %>
   </div>
-  <div class="input-append date datepicker col-sm-3" data-date="<%= params[:end_date] %>" data-date-format="yyyy-mm-dd">
-    <%= text_field_tag :end_date, params[:end_date], readonly: true, class: "form-control" %>
-    <span class="add-on"><i class="icon-th"></i></span>
+  <div class="col-sm-3">
+    <%= text_field_tag :end_date, params[:end_date], readonly: true, class: "form-control datepicker", :"data-date-format" => "yyyy-mm-dd"%>
   </div>
   <%= hidden_field_tag :search, true %>
   <% if params[:clinician_id].present? %>
@@ -24,6 +22,8 @@
   <th>Clinician</th>
   <th>Patient Name</th>
   <th>Patient UserName</th>
+  <th>Patient Birthdate</th>
+  <th>Patient Phone</th>
   <th>Appointment Time</th>
   <th>Created At</th>
   <th>Action</th>
@@ -34,6 +34,8 @@
         <td><%= appointment.user.name %></td>
         <td><%= patient.full_name %></td>
         <td><%= link_to patient.user_name, patient_answer_path(patient.user_name)%></td>
+        <td><%= patient.birth_date %></td>
+        <td><%= patient.phone_number %></td>
         <td><%= appointment.appointment_time.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d %l:%M %p") %> EST</td>
         <td><%= appointment.created_at.strftime("%Y-%m-%d") %></td>
         <td><%= link_to 'Delete', appointment.patient , method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>

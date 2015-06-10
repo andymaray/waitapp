@@ -3,6 +3,8 @@
 	<%= f.input :gp_code %>
 	<%= f.input :first_name %>
 	<%= f.input :last_name %>
+	<%= f.input :birth_date, input_html: { class: 'datepicker', :"data-date-format" => "yyyy-mm-dd" } %>
+	<%= f.input :patient_code %>
 	<%= f.input :phone_number %>
 	<%= f.fields_for :appointments, @patient.appointments.present? ? @patient.appointments : @patient.appointments.new do |appointment| %>
 		<%= appointment.input :appointment_time, as: :datetime_picker %>

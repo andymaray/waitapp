@@ -81,6 +81,8 @@ class PatientsController < ApplicationController
         :gp_code,
         :phone_number,
         :user_name,
+        :patient_code,
+        :birth_date,
         patient_answers_attributes: [:answer, { answer: [] }, :id],
         appointments_attributes: [:id, :appointment_time, :user_id, :patient_id]
       )

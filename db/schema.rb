@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608090106) do
+ActiveRecord::Schema.define(version: 20150610164208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,11 +54,13 @@ ActiveRecord::Schema.define(version: 20150608090106) do
     t.boolean  "form_reached"
     t.datetime "appointment_time"
     t.boolean  "questionnaire_complete", default: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "user_name"
-    t.string   "phone_number"
-    t.string   "gp_code"
+    t.string   "encrypted_first_name"
+    t.string   "encrypted_last_name"
+    t.string   "encrypted_user_name"
+    t.string   "encrypted_phone_number"
+    t.string   "encrypted_gp_code"
+    t.string   "encrypted_birth_date"
+    t.string   "encrypted_patient_code"
   end
 
   add_index "patients", ["token"], name: "index_patients_on_token", unique: true, using: :btree
@@ -75,6 +77,13 @@ ActiveRecord::Schema.define(version: 20150608090106) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "bodypart_id"
+  end
+
+  create_table "survey_question_choices", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "survey_question_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "survey_questions", force: :cascade do |t|

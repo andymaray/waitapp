@@ -57,7 +57,7 @@ class PresentationsController < ApplicationController
     end
 
     def assign_patient_or_redirect
-      unless(@patient = Patient.find_by(user_name: params[:id]))
+      unless(@patient = Patient.find_by_user_name(params[:id]))
         redirect_to root_url, alert: "Invalid token."
       end
     end

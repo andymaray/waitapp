@@ -20,6 +20,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'haml', '~> 4.0.6'
 gem 'heroku'
 gem 'turbolinks'
+gem 'attr_encrypted'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

@@ -28,7 +28,7 @@ class BodypartsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find_by(user_name: params[:id])
+    @patient = Patient.find_by_user_name(params[:id])
   end
 
   def edit

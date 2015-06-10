@@ -22,7 +22,8 @@ class Patient < ActiveRecord::Base
   has_many :survey_questions, through: :patient_answers
   has_many :appointments, dependent: :destroy
 
-  validates_presence_of :first_name, :last_name, :gp_code
+  validates_presence_of :first_name, :last_name, :gp_code, :birth_date
+  attr_encrypted :gp_code, :first_name, :last_name, :birth_date, :phone_number, :user_name, :patient_code, :key => 'maureen5102waitapp2015'
 
   accepts_nested_attributes_for :patient_answers, update_only: true
   accepts_nested_attributes_for :appointments, allow_destroy: true
