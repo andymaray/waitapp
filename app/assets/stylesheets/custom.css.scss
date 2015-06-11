@@ -263,6 +263,13 @@ h1.new_patient_heading {
 #new_patient .datetimepicker button{
   height: 50px;
 }
+.date-select-label{
+  display: block;
+}
+.date-select { 
+  display: inline-block;
+  width: 32.5%;
+}
 .survey_question {
   margin-top: 15px;
   margin-bottom: 10px;
