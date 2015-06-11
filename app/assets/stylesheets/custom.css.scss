@@ -389,12 +389,14 @@ ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
   float: left;
   width: 100%;
 }
+
+
 .body_diagram {
-  width: 320px;
-  height: 1660px;
+  width: 792px;
+  height: 815px;
   background-position: 0px 20px;
   background-repeat: no-repeat;
-  background-image: image-url('body_diagram.jpg');
+  background-image: image-url('body_diagram_front_back.jpg');
   margin-left: auto;
   margin-right: auto;
 }
@@ -461,12 +463,19 @@ button.standard_action_button.body_parts_button {
 /* Front - Chest */
 .body_diagram .radio label[for=patient_bodypart_id_2] {
   margin-left: 91px;
-  margin-top: 150px;
+  /*margin-top: 150px;
   height: 125px;
+  padding-top: 40px;
+  */
+
+  margin-top: 190px;
+  padding-top: 10px;
+  height: 40px;
+  
   width: 130px;
   position: absolute;
   z-index: 4;
-  padding-top: 40px;
+  
 }
 
 /* Front - Abdomen */
@@ -511,19 +520,20 @@ button.standard_action_button.body_parts_button {
 
 /* Back - Back */
 .body_diagram .radio label[for=patient_bodypart_id_7] {
-  margin-left: 93px;
-  margin-top: 995px;
-  height: 225px;
+  margin-left: 554px;
+  margin-top: 220px;
+  height: 180px;
   width: 130px;
   position: absolute;
   z-index: 4;
-  padding-top: 100px;
+  padding-top: 50px;
 }
+
 
 /* Back - Head & neck */
 .body_diagram .radio label[for=patient_bodypart_id_8] {
-  margin-left: 110px;
-  margin-top: 862px;
+  margin-left: 571px;
+  margin-top: 5px;
   height: 125px;
   width: 90px;
   position: absolute;
@@ -532,8 +542,8 @@ button.standard_action_button.body_parts_button {
 
 /* Back - Shoulders & arms */
 .body_diagram .radio label[for=patient_bodypart_id_9] {
-  margin-left: 0px;
-  margin-top: 987px;
+  margin-left: 457px;
+  margin-top: 129px;
   height: 338px;
   width: 320px;
   position: absolute;
@@ -542,8 +552,8 @@ button.standard_action_button.body_parts_button {
 
 /* Back - Buttocks */
 .body_diagram .radio label[for=patient_bodypart_id_10] {
-  margin-left: 81px;
-  margin-top: 1220px;
+  margin-left: 544px;
+  margin-top: 342px;
   height: 72px;
   width: 150px;
   position: absolute;
@@ -552,13 +562,34 @@ button.standard_action_button.body_parts_button {
 
 /* Back - Hips & legs */
 .body_diagram .radio label[for=patient_bodypart_id_11] {
-  margin-left: 78px;
-  margin-top: 1292px;
+  margin-left: 541px;
+  margin-top: 414px;
   height: 315px;
   width: 160px;
   position: absolute;
   z-index: 1;
 }
+
+
+.body_diagram .radio label[for=patient_bodypart_id_12] {
+  margin-left: 352px;
+  margin-top: 235px;  
+  position: absolute;
+  z-index: 1;
+}
+
+.front-side{
+  display: inline-block;
+  margin-left: 96px;
+  margin-bottom: 0;
+}
+
+.back-side{
+  display: inline-block;
+  margin-left: 358px;
+  margin-bottom: 0;
+}
+
 ul.nav.navbar-nav.pull-right li a.new_header_button:hover {
   color: #E9FFF2;
   background-color: #43AB6C;
@@ -796,4 +827,91 @@ input.dummy_textfield {
 label.radio_buttons.optional.control-label {
   padding-left: 10px;
 }
+}
+
+
+@media screen and (max-width: 568px) {
+
+.front-side, .back-side{
+  display: none;
+}
+
+.body_diagram {
+  width: 320px;
+  height: 1660px;
+  background-position: 0px 20px;
+  background-repeat: no-repeat;
+  background-image: image-url('body_diagram.jpg');
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Back - Back */
+.body_diagram .radio label[for=patient_bodypart_id_7] {
+  margin-left: 93px;
+  margin-top: 1045px;
+  height: 180px;
+  width: 130px;
+  position: absolute;
+  z-index: 4;
+  padding-top: 50px;
+}
+
+
+/* Back - Head & neck */
+.body_diagram .radio label[for=patient_bodypart_id_8] {
+  margin-left: 110px;
+  margin-top: 862px;
+  height: 125px;
+  width: 90px;
+  position: absolute;
+  z-index: 4;
+}
+
+
+
+/* Back - Shoulders & arms */
+.body_diagram .radio label[for=patient_bodypart_id_9] {
+  margin-left: 0px;
+  margin-top: 987px;
+  height: 338px;
+  width: 320px;
+  position: absolute;
+  z-index: 1;
+}
+
+
+/* Back - Buttocks */
+.body_diagram .radio label[for=patient_bodypart_id_10] {
+  margin-left: 81px;
+  margin-top: 1220px;
+  height: 72px;
+  width: 150px;
+  position: absolute;
+  z-index: 4;
+}
+
+
+.body_diagram .radio label[for=patient_bodypart_id_11] {
+  margin-left: 78px;
+  margin-top: 1292px;
+  height: 315px;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+}
+
+
+.body_diagram .radio label[for="patient_bodypart_id_12"]{
+  margin-top: 1618px;
+  margin-left: 121px;
+}
+
+.bodyparts_action_button_wrapper{
+  top: 40px;
+  right: 0;
+}
+
+
 }

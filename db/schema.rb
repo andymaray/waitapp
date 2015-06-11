@@ -79,13 +79,6 @@ ActiveRecord::Schema.define(version: 20150610164208) do
     t.integer  "bodypart_id"
   end
 
-  create_table "survey_question_choices", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "survey_question_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
   create_table "survey_questions", force: :cascade do |t|
     t.text     "question"
     t.datetime "created_at",                      null: false

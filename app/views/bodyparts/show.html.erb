@@ -1,7 +1,15 @@
 <div class="body_diagram_wrapper">
   <%= simple_form_for @patient do |f| %>
+  	
+  	<h2 class="text-center">Select the area you're visiting about</h2>
+
+  	<h3 class="front-side">Front side</h3>
+    <h3 class="back-side">Back side</h3>
+
     <div class="body_diagram">
-      <%= f.association :bodypart, as: :radio_buttons, label: 'Select the area you\'re visiting about' %>
+
+      <%= f.association :bodypart, as: :radio_buttons, label: '' %>
+
     </div>
     <div class="bodyparts_action_button_wrapper">
       <button type="submit" class="standard_action_button body_parts_button">Next</button>
