@@ -460,7 +460,7 @@ button.standard_action_button.body_parts_button {
 }
 /* Front - Head */
 .body_diagram .radio label[for=patient_bodypart_id_1] {
-  margin-left: 107px;
+  margin-left: 105px;
   height: 125px;
   width: 90px;
   position: absolute;
@@ -579,21 +579,36 @@ button.standard_action_button.body_parts_button {
 
 
 .body_diagram .radio label[for=patient_bodypart_id_12] {
+  /*
   margin-left: 352px;
   margin-top: 235px;  
-  position: absolute;
+  position: absolute;*/
+
+  position: fixed;
+  right: 20px;
+  bottom: 78px;
+
+  width: 180px;
+
   z-index: 1;
+
+  color: #fff;
+  padding: 13px 30px 12px;
+
+  border-radius: 4px;
+
+  background-color: #2dc769;
 }
 
 .front-side{
   display: inline-block;
-  margin-left: 96px;
+  margin-left: 122px;
   margin-bottom: 0;
 }
 
 .back-side{
   display: inline-block;
-  margin-left: 358px;
+  margin-left: 407px;
   margin-bottom: 0;
 }
 
@@ -726,6 +741,17 @@ input.dummy_textfield {
   border-radius: 4px;
 }
 
+.simple_form.new_patient{
+  .form-group{
+    float:left;
+    width: 100%;
+  }  
+}
+
+#patient_birth_date{
+  margin-bottom: 10px;  
+}
+
 .search-presentation{
   float: left;
   width: 80%;
@@ -748,7 +774,7 @@ input.dummy_textfield {
 
 .question-see-all{
   float: right;
-  margin-top: 23px;
+  margin-top: 25px;
 }
 
 .no-padding{
