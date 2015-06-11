@@ -21,7 +21,6 @@ class PatientsController < ApplicationController
     params[:patient].delete(:"birth_date(3i)")
 
     @patient = Patient.new(patient_params)
-    @patient.birth_date = params[:patient][:birth_date]
     if @patient.save
       remember_patient(@patient)
       redirect_to bodypart_path(@patient.user_name)

@@ -4,7 +4,7 @@
 	<%= f.input :first_name %>
 	<%= f.input :last_name %>
 	<%= f.label :birth_date, 'Date of Birth', class: "date-select-label" %>
-	<%= f.date_select :birth_date, { :order => [:year, :month, :day]}, {:class => "form-control date-select"} %>
+	<%= f.date_select :birth_date, { :order => [:year, :month, :day], start_year: 1910}, {:class => "form-control date-select"} %>
 	<%= f.input :patient_code %>
 	<%= f.input :phone_number %>
 	<%= f.fields_for :appointments, @patient.appointments.present? ? @patient.appointments : @patient.appointments.new do |appointment| %>
